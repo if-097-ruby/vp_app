@@ -1,47 +1,50 @@
 body {
-    background: #ffffff;
-
+  background: #ffffff;
 }
 
 main {
-    width: 90%;
-    margin: 0 auto;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .title {
-    text-align: center;
+  text-align: center;
 }
 
 h1 {
-    font-size: 80px;
-    margin-bottom: 0;
+  font-size: 80px;
+  margin-bottom: 0;
 }
 
 .subtitle {
-    color: red;
+  color: red;
 }
 
 .text {
-    text-align: center;
+  text-align: center;
 }
 
-.column_left, .column_right {
-    text-align: left;
-    width: 30%;
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: 20px;
-}
-.column_right{
-    margin-left: 20px;
+.column_left {
+  text-align: left;
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 20px;
 }
 
-
-.image{
-    margin: 0 auto;
-    background: url("http://d1id5eheivyv24.cloudfront.net/2019-4-18-c1191695cbe5be3e/img/homepage/about/flag.png") center center no-repeat;
-    height: 620px;
+.column_right {
+  text-align: left;
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 20px;
+  margin-left: 20px;
 }
 
-
-
+.image {
+  margin: 0 auto;
+  background: url("https://lviv.com/wp-content/uploads/2017/03/soft-serve-office-117.jpg") no-repeat;
+  height: 520px;
+  background-size: cover;
+  border-radius: 10px;
+}
