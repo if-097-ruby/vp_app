@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string   :password
       t.string   :password_confirmation
       t.integer  :role
-      t.integer  :organisation_id
+      t.integer  :organization_id
       t.timestamps
     end
   end
