@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-
-	  validates :first_name, :last_name,  presence: true, length: { maximum: 60 }
-  	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    before_save { self.email = email.downcase }
+	validates :first_name, :last_name,  presence: true, length: { maximum: 60 }
+  	                VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   	validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },	
                     uniqueness: true
@@ -11,7 +11,6 @@ class User < ApplicationRecord
                          :on => :create
   	validates :password, :confirmation => true,
                          :length => {:within => 6..40},
-                         :allow_blank => true,
                          :on => :update
   	has_one :organisation_id
 
