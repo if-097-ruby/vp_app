@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_073705) do
+ActiveRecord::Schema.define(version: 2019_04_22_184900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "device_groups", force: :cascade do |t|
     t.string "name"
-    t.integer "organisation_id"
+    t.integer "organization
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +34,4 @@ ActiveRecord::Schema.define(version: 2019_04_22_073705) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
 end
