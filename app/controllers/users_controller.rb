@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   end
 
   def show
-  	
   end
 
   def create
@@ -21,12 +20,10 @@ class UsersController < ApplicationController
   end
 
   def edit
-  	
   end
 
 
   def destroy
-
     redirect_to users_path
   end
 
