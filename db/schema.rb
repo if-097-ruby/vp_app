@@ -4,7 +4,7 @@ ActiveRecord::Schema.define(version: 2019_04_22_184900) do
 
   create_table "device_groups", force: :cascade do |t|
     t.string "name"
-    t.integer "organization_id"
+    t.integer "organization
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,4 +29,8 @@ ActiveRecord::Schema.define(version: 2019_04_22_184900) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
 end
