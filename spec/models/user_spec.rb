@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  subject {
+  RSpec.describe User, type: :model do
+    subject {
     described_class.new(first_name: "Example", last_name: "Test", email: "example@mail.com", password: "qwerty", 
     	                 password_confirmation: "qwerty", admin: true)
     }
