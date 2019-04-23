@@ -1,15 +1,17 @@
 class UsersController < ApplicationController
-  
+
+  before_action :current_user, only: [:show, :edit, :update, :destroy]
+
   def index
   	@user = User.all
   end
 
   def show
-  	@user = User.find(params[:id])
+  	
   end
 
   def create
-    @user = User.create(user_params)
+    user = User.create(user_params)
 
     redirect_to users_path
   end
@@ -19,22 +21,23 @@ class UsersController < ApplicationController
   end
 
   def edit
-  	@user = User.find(params[:id])
+  	
   end
 
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
 
     redirect_to users_path
   end
 
-private
+    private
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, 
-    	                           :password_confirmation, :admin, :organisation_id)
+    	                         :password_confirmation, :admin, :organisation_id)
   end
   
+  def currest_user
+    @user = User.find(params[:id])
+  end  
 end
