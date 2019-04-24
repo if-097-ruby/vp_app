@@ -12,12 +12,14 @@ gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'haml-rails', '1.0.0'
+gem 'bootstrap-sass', '~> 2.3.2.0'
+gem 'mail_form'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', "4.0.2"
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'react_on_rails', '11.1.4' 
+gem 'react_on_rails', '11.1.4'
 # gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
