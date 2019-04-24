@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+scope '/account' do
   devise_for :users, controllers: { registrations: "registrations"}
   as :user do
     get '/' => 'devise/registrations#new'
@@ -6,3 +7,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => "/cable"
   resources :grid
 end
+    namespace :account do
+      resources :users
+    end
+  end
