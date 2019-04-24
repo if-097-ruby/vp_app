@@ -1,28 +1,31 @@
 require 'rails_helper'
 
 RSpec.describe Device, type: :model do
-  subject {
-    described_class.new(name: "Anything", device_type: "Lorem ipsum", device_group_id: "1")
-  }
+  let(:device){build (:device)}
+
+  it "is valid with valid params" do
+  expect(device.save).to eq(true)
+  end
 
   it "is not valid without name" do
-    subject.name = nil
-    expect(subject).to_not be_valid
+    device.name = nil
+    expect(device.save).to eq(false)
   end
 
   it "is not valid without device_type" do
-    subject.device_type = nil
-    expect(subject).to_not be_valid
+    device.device_type = nil
+    expect(device.save).to eq(false)
   end
 
   it "is not valid without device_group_id" do
-    subject.device_group_id = nil
-    expect(subject).to_not be_valid
+    device.device_group_id = nil
+    expect(device.save).to eq(false)
   end
 
   it "is not valid with name, shorter than 3 symbols" do
-    subject.name = "AB"
-    expect(subject).to_not be_valid
+    device.name = "AB"
+    expect(device.save).to eq(false)
   end
-  
+
+
 end
