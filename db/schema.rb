@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_04_22_184900) do
     t.string "password"
     t.string "password_confirmation"
     t.integer "role"
-    t.integer "organisation_id"
+    t.integer "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
