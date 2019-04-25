@@ -1,4 +1,4 @@
-class Account::User < ApplicationRecord
+class User < ApplicationRecord
   belongs_to :organization
 
   validates :first_name, :last_name, presence: true, length: { in: 2..50 }
@@ -9,7 +9,7 @@ class Account::User < ApplicationRecord
   enum role: [:member, :admin, :super_admin]
   after_initialize :set_default_role, :if => :new_record?
 
-  private
+private
 
   def set_default_role
     self.role ||= :member

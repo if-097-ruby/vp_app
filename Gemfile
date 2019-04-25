@@ -13,7 +13,8 @@ gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'haml-rails', '1.0.0'
-
+gem 'simple_form'
+gem 'pry', '~> 0.12.2'
 
 #gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>=2.1.0'
