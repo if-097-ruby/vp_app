@@ -19,6 +19,9 @@ gem 'webpacker', "4.0.2"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'react_on_rails', '11.1.4' 
 # gem 'mini_racer', platforms: :ruby
+gem 'bootstrap', '4.3.1'
+gem 'jquery-rails'
+gem 'sprockets-rails', '2.3.3'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

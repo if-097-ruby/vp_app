@@ -1,3 +1,116 @@
-// Place all the styles related to the PublicPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body {
+  padding: 0;
+  margin: 0;
+  background: #f4f4f4;
+}
+
+html, h1, h2, h3, h4, h5, h6, a {
+  font-family: "Raleway";
+}
+
+.navbar {
+  background: darkblue;
+}
+
+.nav-link, .navbar-brand {
+  color: #f4f4f4;
+  cursor: pointer;
+}
+
+.nav-link {
+  margin-right: 1em;
+  &:hover {
+    background: #f4f4f4;
+    color: #f97300;
+  }
+}
+
+.navbar-toggler {
+  background: #fff !important;
+}
+
+.logo-pic {
+  width: 30px;
+}
+
+.header-join {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 30px;
+}
+
+.header-join-sign-up {
+  display: inline-block;
+  border-radius: 45%;
+  background-color: #F97300;
+  opacity: 0.8;
+  padding: 10px 20px;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.header-join-log-in a {
+  color: #000;
+  text-decoration: none;
+  :hover {
+    color: #191970;
+    text-decoration: underline;
+    transition: 0.3s ease-out;
+  }
+}
+
+/*home-page style*/
+
+.title {
+  position: relative;
+  height: 100vh;
+}
+
+.description {
+  position: absolute;
+  top: 30%;
+  margin: auto;
+  padding: 2em;
+  h1 {
+    color: #F97300;
+  }
+  p {
+    color: #666;
+    font-size: 20px;
+    width: 50%;
+    line-height: 1.5;
+  }
+  button {
+    border: 1px  solid #F97300;
+    background: #F97300;
+    color: #fff;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.animated {
+  z-index: 1;
+  background: gray url(https://subtlepatterns.com/patterns/geometry2.png) repeat 0 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  -webkit-animation: slide 20s linear infinite;
+}
+
+@-webkit-keyframes slide {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -400px 0;
+  }
+}
