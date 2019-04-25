@@ -3,7 +3,7 @@ module Account
   class UsersController < ApplicationController
    
     def index
-     @users = collection
+      @users = collection
     end
 
     def show
