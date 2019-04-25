@@ -27,4 +27,4 @@
 //= require waves
 //= require highcharts
 
-//= require spacex/main.min.js .
+//= require spacex/main.js
