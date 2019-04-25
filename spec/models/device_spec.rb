@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Device, type: :model do
-  let(:device){build (:device)}
+  let(:device){create (:device)}
 
   it "is valid with valid params" do
   expect(device.save).to eq(true)
@@ -17,15 +17,9 @@ RSpec.describe Device, type: :model do
     expect(device.save).to eq(false)
   end
 
-  it "is not valid without device_group_id" do
-    device.device_group_id = nil
-    expect(device.save).to eq(false)
-  end
-
   it "is not valid with name, shorter than 3 symbols" do
     device.name = "AB"
     expect(device.save).to eq(false)
   end
-
 
 end
