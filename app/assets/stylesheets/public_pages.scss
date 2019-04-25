@@ -95,7 +95,7 @@ a:hover {
 }
 
 /*footer*/
-.container {
+.footer-container {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -109,6 +109,11 @@ a:hover {
   height: 100vh;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+}
+
 .description {
   position: absolute;
   top: 30%;
@@ -117,7 +122,9 @@ a:hover {
 
   h1 {
     color: #f97300;
+    text-align: center;
   }
+
 
   p {
     font-size: 20px;
@@ -139,7 +146,9 @@ a:hover {
   margin: 0;
   animation: slide 20s linear infinite;
   text-align: center;
-  background: gray url(https://subtlepatterns.com/patterns/geometry2.png) repeat 0 0;
+  background: {
+    image: asset_url("home-page-back.png");
+  }
 }
 
 
