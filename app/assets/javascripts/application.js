@@ -13,4 +13,18 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+
+//= require modernizr
+//= require jquery
+//= require jquery_ujs
+//= require popper
+//= require bootstrap
+//= require nprogress
+//= require jquery-sparkline
+
+
+//= require themify-icons
+//= require waves
+//= require highcharts
+
+//= require spacex/main.js
