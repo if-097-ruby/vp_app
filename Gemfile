@@ -17,6 +17,16 @@ gem 'haml-rails', '1.0.0'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>=2.1.0'
 gem 'font-awesome-rails'
+
+gem "jquery-rails"
+gem 'popper_js', '~> 1.12.9'
+gem 'rails-assets-themify-icons', source: 'https://rails-assets.org'
+gem 'rails-assets-waves', '0.7.5', source: 'https://rails-assets.org'
+#gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
+gem 'rails-assets-modernizr', '2.8.3', source: 'https://rails-assets.org'
+gem 'rails-assets-nprogress', source: 'https://rails-assets.org'
+gem 'rails-assets-jquery-sparkline', source: 'https://rails-assets.org'
+gem 'rails-assets-highcharts', '5.0.2', source: 'https://rails-assets.org'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
