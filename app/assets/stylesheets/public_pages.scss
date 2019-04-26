@@ -8,12 +8,13 @@ body
 {
   margin: 0;
   padding: 0;
-  background: #f4f4f4;
 }
 
-html, h1, h2, h3, h4, h5, h6, a, p, span {
-  font-family: 'RalewayMedium';
+html, h1, h2, h3, h4, h5, h6, p, a, span, li, div {
+  font-family: RalewayMedium;
 }
+
+/*header*/
 
 .navbar {
   background: darkblue;
@@ -67,8 +68,7 @@ a:hover {
   border-radius: 50%;
   cursor: pointer;
   text-decoration: none;
-  color: #fff !important;
-  color: #000;
+  color: #fff;
 }
 
 .header-join-sign-up {
@@ -76,8 +76,8 @@ a:hover {
 
   &:hover {
     transition: .4s ease-in-out;
-    text-decoration: none !important;
-    color: darkorange !important;
+    text-decoration: none;
+    color: darkorange;
     background-color: #fff;
   }
 }
@@ -87,8 +87,8 @@ a:hover {
 
   &:hover {
     transition: .4s ease-in-out;
-    text-decoration: none !important;
-    color: #f97300 !important;
+    text-decoration: none;
+    color: #f97300;
     border-radius: 47%;
     background-color: #fff;
   }
@@ -96,12 +96,62 @@ a:hover {
 
 /*footer*/
 .footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: darkblue;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  color: white;
+  font-size: .8rem;
 }
+
+.team-sign {
+  margin: 0;
+  font-size: .7rem;
+  color: white;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.footer-menu-list-nav, .footer-menu-list-community {
+  display: flex;
+  align-items: center;
+}
+
+.footer-menu-list-nav {
+  justify-content: center;
+}
+
+.footer-menu-list-community {
+  justify-content: flex-end;
+}
+
+.ul {
+  margin: 0;
+}
+
+.list-item {
+  margin-left: 4px;
+  margin-right: 4px;
+  list-style-type: none;
+
+  a {
+    color: white;
+  }
+
+  span:hover {
+    text-decoration: underline;
+  }
+}
+
+.logo {
+  width: 20px;
+}
+
 
 /*home-page style*/
 .title {
@@ -129,16 +179,25 @@ a:hover {
   p {
     font-size: 20px;
     line-height: 1.5;
-    width: 50%;
+    margin-left: 15%;
+    margin-right: 15%;
     color: #666;
   }
 
   button {
     color: #fff;
-    border: 1px solid #f97300;
+    border: 2px solid #f97300;
     background: #f97300;
+
+    &:hover {
+      color: #f97300;
+      background-color: white;
+      transition: .5s ease-in-out ;
+    }
   }
 }
+
+/*background-animation*/
 
 .animated {
   z-index: 1;

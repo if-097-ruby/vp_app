@@ -1,10 +1,10 @@
 %header.navbar.navbar-expand-lg.fixed-top
-  =link_to public_pages_home_path do
+  =link_to root_path do
     .logo-motto
       = image_tag  "logo-pic.png", class: "logo-pic"
       %span SpaceX
   %nav.collapse.navbar-collapse
-    %ul.navbar-nav.mr-4.offset-md-2
+    %ul.navbar-nav.offset-md-2
       %li
         = link_to "Pricing", "#", class: "nav-link"
       %li

@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get 'public_pages/home'
+  root 'public_pages#home'
 end
