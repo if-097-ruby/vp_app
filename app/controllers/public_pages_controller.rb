@@ -4,4 +4,7 @@ class PublicPagesController < ApplicationController
 
   def pricing
   end
+
+  def about
+  end
 end
