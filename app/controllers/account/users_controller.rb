@@ -13,8 +13,8 @@ class Account::UsersController < Account::AccountController
   end
 
   def create
-    organization = Organization.create(org_params)
-    user = organization.users.build(user_params)
+    @organization = Organization.create(org_params)
+    @user = organization.users.build(user_params)
     redirect_to user_path(user)
   end
 

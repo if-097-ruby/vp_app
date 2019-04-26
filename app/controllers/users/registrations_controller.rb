@@ -2,7 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
+  before_action :configure_account_update_params, only: :update
 
   # GET /resource/sign_up
   def new
@@ -12,10 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #POST /resource
   def create
     super do |resource|
-      if resource.valid?
         @organization = Organization.create(name: params[:organization_name])      
         resource.update(organization_id: @organization.id)
-      end
     end
   end
 
