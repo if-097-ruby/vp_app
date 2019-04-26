@@ -4,14 +4,19 @@
   //src: url("./fonts/RalewayMedium.ttf") format("truetype");
 }
 
-body
-{
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
 html, h1, h2, h3, h4, h5, h6, p, a, span, li, div {
   font-family: RalewayMedium;
+}
+
+/*main style*/
+.content {
+  min-height: calc(100vh - 50px);
 }
 
 /*header*/
@@ -95,6 +100,12 @@ a:hover {
 }
 
 /*footer*/
+
+.footer {
+  z-index: 2;
+  height: 50px;
+}
+
 .footer-container {
   display: flex;
   align-items: center;
@@ -152,8 +163,8 @@ a:hover {
   width: 20px;
 }
 
-
 /*home-page style*/
+
 .title {
   position: relative;
   height: 100vh;
@@ -219,3 +230,24 @@ a:hover {
     background-position: -400px 0;
   }
 }
+
+/*
+.form {
+  align-content: center;
+  color: #fff;
+  font-family: sans-serif;
+}
+.form h1 {
+  margin-top: 200px;
+  font-size: 32px;
+}
+.form-group {
+  width: 80%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.btn {
+  background: #ff5722;
+  color: white;
+}*/
