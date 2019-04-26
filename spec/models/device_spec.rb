@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Device, type: :model do
-  let(:device){create (:device)}
+  let!(:device) { create (:device) }
 
   it "is valid with valid params" do
-  expect(device.save).to eq(true)
+    expect(device.save).to eq(true)
   end
 
   it "is not valid without name" do

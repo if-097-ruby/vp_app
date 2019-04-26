@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_04_22_184900) do
     t.string "email"
     t.string "password"
     t.string "password_confirmation"
-    t.integer "role"
+    t.integer "role", default: 0
     t.integer "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
