@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #POST /resource
   def create
     super do |resource|
+      if resource.valid?
         @organization = Organization.create(name: params[:organization_name])      
         resource.update(organization_id: @organization.id)
     end
