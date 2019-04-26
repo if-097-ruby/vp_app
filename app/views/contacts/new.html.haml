@@ -1,0 +1,19 @@
+.form
+%h1.page.tittle
+  Contact Us
+  %h1
+  .form-group
+    = form_for @contact do |f|
+      = f.label :name
+      %br/
+      = f.text_field :name, required: true, class: "form-control"
+      %br/
+      = f.label :email
+      %br/
+      = f.text_field :email, required: true, class: "form-control"
+      %br/
+      = f.label :message
+      %br/
+      = f.text_area :message, as: :text
+      %br/
+      = f.submit 'Send Message', class: "btn"

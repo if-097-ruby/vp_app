@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', "4.0.2"
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'react_on_rails', '11.1.4' 
+gem 'react_on_rails', '11.1.4'
 # gem 'mini_racer', platforms: :ruby
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
