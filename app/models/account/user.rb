@@ -7,7 +7,7 @@ class Account::User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },	
                     uniqueness: true
   enum role: [:member, :admin, :super_admin]
-  after_initialize :set_default_role, :if => :new_record?
+  after_initialize :set_default_role, :if  :new_record?
 
   private
 

@@ -132,6 +132,7 @@ GEM
     nokogiri (1.10.2)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    permitted_params (1.0.0)
     pg (1.1.4)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -271,6 +272,7 @@ DEPENDENCIES
   haml-rails (= 1.0.0)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  permitted_params
   pg (>= 0.18, < 2.0)
   pry
   puma (~> 3.11)
