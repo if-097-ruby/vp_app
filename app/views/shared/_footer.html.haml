@@ -1,4 +1,15 @@
-%footer.footer.mt-auto.py-3
+%footer.navbar
   .footer-container
-    %span.text-muted
-      Place sticky footer content here.
+    %span.list-item.col-sm-2
+      = link_to "SpaceX", public_pages_home_path
+    .team-sign.footer-menu-list-nav.col-sm-4
+      © 2019 IF-097.Ruby.
+      %span Terms of Service & Privacy Policy
+    %ul.footer-menu-list-community.col-sm-3
+      %li.list-item Subscribe Us:
+      %li.list-item
+        = image_tag "twitter.png", class: "logo"
+      %li.list-item
+        = image_tag "facebook.png", class: "logo"
+      %li.list-item
+        = image_tag "instagram.png", class: "logo"

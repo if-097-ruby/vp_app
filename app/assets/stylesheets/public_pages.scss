@@ -8,10 +8,10 @@ body
 {
   margin: 0;
   padding: 0;
-  background: #f4f4f4;
+  overflow-x: hidden;
 }
 
-html, h1, h2, h3, h4, h5, h6, a, p, span {
+html, h1, h2, h3, h4, h5, h6, a, p, span, li {
   font-family: 'RalewayMedium';
 }
 
@@ -67,8 +67,7 @@ a:hover {
   border-radius: 50%;
   cursor: pointer;
   text-decoration: none;
-  color: #fff !important;
-  color: #000;
+  color: #fff;
 }
 
 .header-join-sign-up {
@@ -95,48 +94,95 @@ a:hover {
 }
 
 /*footer*/
+footer {}
 .footer-container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  height: 3vh;
+  padding: 2px 15px;
+  bottom: 0;
   margin-right: auto;
   margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: .8rem;
+}
+.team-sign {
+  margin: 0;
+  font-size: .6rem;
+  color: white;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.footer-menu-list-nav, .footer-menu-list-community {
+  display: flex;
+  align-items: center;
 }
 
-/*home-page style*/
-.title {
-  position: relative;
-  height: 100vh;
+.footer-menu-list-nav {
+  justify-content: center;
 }
+
+.footer-menu-list-community {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.list-item {
+  margin-left: 4px;
+  margin-right: 4px;
+  list-style-type: none;
+
+  a {
+    color: white;
+  }
+
+  span:hover {
+    text-decoration: underline;
+  }
+}
+
+.logo {
+  width: 20px;
+}
+
 
 .container {
   display: flex;
   justify-content: center;
+  position: relative;
+  padding-top: 15%;
+  padding-bottom: 11.25%;
 }
 
 .description {
-  position: absolute;
-  top: 30%;
   margin: auto;
   padding: 2em;
 
   h1 {
     color: #f97300;
-    text-align: center;
   }
 
 
   p {
+    align-items: center;
     font-size: 20px;
     line-height: 1.5;
-    width: 50%;
+    padding: 0 25%;
     color: #666;
   }
 
   button {
     color: #fff;
-    border: 1px solid #f97300;
+    border: 2px solid #f97300;
     background: #f97300;
+
+    &:hover {
+      color: #f97300;
+      background-color: white;
+    }
   }
 }
 
@@ -161,10 +207,15 @@ a:hover {
   }
 }
 
+ul {
+  margin-bottom: 0;
+}
+
 /*Pricing page*/
 html {
   font-size: 14px;
 }
+
 .container {
   max-width: 960px;
 }
@@ -236,5 +287,4 @@ background: black;
   margin-left: 60px;
   margin-bottom: 50px;
 }
-
 
