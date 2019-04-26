@@ -181,3 +181,60 @@ html {
     font-size: 16px;
   }
 }
+
+
+/* About page */
+
+$color_1: black;
+$color_2: #ffffff;
+$color_3: #555555;
+$color_4: #fff;
+$color_5: #1abc9c;
+$font_family_1: "Arial Black", Gadget, sans-serif;
+$background_color_1: #474e5d;
+$background_color_2: #ffffff;
+$background_color_3: #2f2f2f;
+
+.margin {
+  margin-bottom: 45px;
+  font-family: $font_family_1;
+  color: $color_1;
+  font-size: 5em;
+}
+.margin-2 {
+  margin-bottom: 45px;
+}
+.bg-1 {
+background: black;
+  background-image: url("hero.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.bg-2 {
+  background-color: $background_color_1;
+  color: $color_2;
+}
+.bg-3 {
+  background-color: $background_color_2;
+  color: $color_3;
+}
+.bg-4 {
+  background-color: $background_color_3;
+  color: $color_4;
+}
+.container-fluid {
+  height: 530px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+
+.description2 {
+  margin-right: 60px;
+  margin-left: 60px;
+  margin-bottom: 50px;
+}
+
+
