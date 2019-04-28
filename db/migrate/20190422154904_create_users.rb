@@ -5,10 +5,9 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string   :last_name
       t.string   :email
       t.string   :password
-      t.string   :password_confirmation
       t.integer  :role, default: 0
       t.integer  :organization_id, index: {unique: true}
-  
+
       t.timestamps
     end
   end

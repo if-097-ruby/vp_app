@@ -1,5 +1,5 @@
 class Account::UsersController < Account::ApplicationController
- 
+
   def index
     @users = collection
   end
@@ -16,7 +16,7 @@ class Account::UsersController < Account::ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to account_user_path(id: @user.id)
-    else 
+    else
       render :new
     end
   end
@@ -27,9 +27,11 @@ class Account::UsersController < Account::ApplicationController
 
   def update
     @user = resource
-    @user.update(user_params)
-
-    redirect_to account_user_path(id: @user.id)
+    if @user.update_attributes(user_params)
+      redirect_to account_user_path(id: @user.id)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -42,15 +44,15 @@ class Account::UsersController < Account::ApplicationController
 private
 
   def collection
-    User.all  
+    User.all
   end
 
   def resource
-    collection.find(params[:id])
+    User.find(params[:id])
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, 
+    params.require(:user).permit(:first_name, :last_name, :email, :password,
     	                           :password_confirmation, :role, :organization_id)
   end
 

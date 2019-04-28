@@ -34,7 +34,7 @@ gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', "4.0.2"
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'react_on_rails', '11.1.4' 
+gem 'react_on_rails', '11.1.4'
 # gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
@@ -59,8 +59,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'factory_bot_rails'
-  gem 'rspec-rails', '~> 3.8'
-  gem 'factory_bot_rails'
+  gem 'rspec-rails'
   gem 'faker'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -81,8 +80,6 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-  #Use Faker to generate fake data
-  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_184900) do
+ActiveRecord::Schema.define(version: 2019_04_26_093344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_04_22_184900) do
     t.integer "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_device_groups_on_organization_id"
   end
 
   create_table "devices", force: :cascade do |t|
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_04_22_184900) do
     t.integer "device_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["device_group_id"], name: "index_devices_on_device_group_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -41,11 +43,11 @@ ActiveRecord::Schema.define(version: 2019_04_22_184900) do
     t.string "last_name"
     t.string "email"
     t.string "password"
-    t.string "password_confirmation"
     t.integer "role", default: 0
     t.integer "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_users_on_organization_id", unique: true
   end
 
 end
