@@ -2,20 +2,17 @@ require 'rails_helper'
 
 RSpec.describe DeviceGroup, type: :model do
   context 'validation tests' do
-  let!(:device_group) { create(:device_group) }
-  
-    it "is valid with valid params" do
-    expect(device_group.save).to eq(true)
+    let!(:device_group) { create(:device_group) }
+
+    describe '#name' do
+      it { is_expected.to validate_presence_of(:name) }
+      it { should_not allow_value("aa").for(:name) }
+      it { should_not allow_value("a"*41).for(:name) }
     end
 
-    it "is not valid without name" do
-      device_group.name = nil
-      expect(device_group.save).to eq(false)
-    end
-
-    it "is not valid with name, shorter than 3 symbols" do
-      device_group.name = "AB"
-      expect(device_group.save).to eq(false)
+    describe 'association' do
+      it { should belong_to :organization }
+      it { should have_many :devices }
     end
   end
 end

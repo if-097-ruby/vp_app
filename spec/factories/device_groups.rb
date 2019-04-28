@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :device_group, class: DeviceGroup do
+  factory :device_group do
     name { Faker::Name.name }
     organization
   end
