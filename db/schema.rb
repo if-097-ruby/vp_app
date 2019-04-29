@@ -43,11 +43,11 @@ ActiveRecord::Schema.define(version: 2019_04_26_093344) do
     t.string "last_name"
     t.string "email"
     t.string "password"
-    t.integer "role", default: 0
+    t.string "password_confirmation"
+    t.integer "role"
     t.integer "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["organization_id"], name: "index_users_on_organization_id", unique: true
   end
 
 end

@@ -61,14 +61,17 @@ Version 2.0
 /*-----------------------------------------------------------------------
 0. Import file styles
 */
-@import 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700';
+/*Imported in gem file
 @import url(../fonts/font-awesome/css/font-awesome.min.css);
 @import url(../plugin/bootstrap/css/bootstrap.min.css);
-@import url(../plugin/nprogress/nprogress.css);
+@import url(../plugin/nprogress/nprogress.css);*/
 /*---------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------
 1. Globally Applied Styles
 */
+
+@import 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700';
+
 html,
 body {
 	position: relative;

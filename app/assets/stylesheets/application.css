@@ -13,10 +13,15 @@
  
  *= require bootstrap
  *= require nprogress
+ *= require font-awesome
  *= require highcharts
  *= require themify-icons
  *= require waves
  *= require_self
+ *= require chartist
+ *= require fullcalendar
+ *= require spacex/jquery.mCustomScrollbar.min.css
+ *= require spacex/percircle.css
  *= require spacex/style.css
  *= require spacex/style.min.css
  */
