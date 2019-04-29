@@ -70,8 +70,6 @@ Version 2.0
 1. Globally Applied Styles
 */
 
-@import 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700';
-
 html,
 body {
 	position: relative;
