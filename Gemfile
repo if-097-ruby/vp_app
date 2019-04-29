@@ -29,7 +29,6 @@ gem 'rails-assets-nprogress', source: 'https://rails-assets.org'
 gem 'rails-assets-highcharts', '5.0.2', source: 'https://rails-assets.org'
 gem 'rails-assets-font-awesome', '4.6.3', source: 'https://rails-assets.org'
 gem 'rails-assets-chartist', '0.9.8', source: 'https://rails-assets.org'
-gem 'rails-assets-fullcalendar', '3.0.1', source: 'https://rails-assets.org'
 gem 'therubyracer'
 gem 'less-rails'
 # Use Uglifier as compressor for JavaScript assets

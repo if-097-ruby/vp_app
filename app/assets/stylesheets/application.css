@@ -19,7 +19,6 @@
  *= require waves
  *= require_self
  *= require chartist
- *= require fullcalendar
  *= require spacex/jquery.mCustomScrollbar.min.css
  *= require spacex/percircle.css
  *= require spacex/style.css

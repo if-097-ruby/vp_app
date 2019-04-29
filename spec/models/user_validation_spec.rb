@@ -12,7 +12,7 @@ RSpec.describe Account::User, type: :model do
       it { is_expected.to validate_presence_of(:first_name) }
 
       it 'does not save the object with 1 letter' do
-        user.update(first_name: "A")
+        user.first_name = 'A'
         expect(user).not_to be_valid
         expect(user.errors[:first_name]).to include("is too short (minimum is 2 characters)")
       end
@@ -22,7 +22,7 @@ RSpec.describe Account::User, type: :model do
       it { is_expected.to validate_presence_of(:last_name) }
 
       it 'does not save the object with 50+ letters' do
-        user.update(first_name: "A"*51)
+        user.first_name = "A"*51
         expect(user).not_to be_valid
         expect(user.errors[:first_name]).to include("is too long (maximum is 50 characters)")
       end

@@ -173,13 +173,9 @@ GEM
       rails-assets-jquery (>= 1.9.1, < 4)
     rails-assets-chartist (0.9.8)
     rails-assets-font-awesome (4.6.3)
-    rails-assets-fullcalendar (3.0.1)
-      rails-assets-jquery (>= 2.0.0)
-      rails-assets-moment (>= 2.9.0)
     rails-assets-highcharts (5.0.2)
     rails-assets-jquery (3.4.0)
     rails-assets-modernizr (2.8.3)
-    rails-assets-moment (2.24.0)
     rails-assets-nprogress (0.2.0)
     rails-assets-themify-icons (0.1.2)
     rails-assets-waves (0.7.5)
@@ -322,7 +318,6 @@ DEPENDENCIES
   rails-assets-bootstrap (= 3.3.7)!
   rails-assets-chartist (= 0.9.8)!
   rails-assets-font-awesome (= 4.6.3)!
-  rails-assets-fullcalendar (= 3.0.1)!
   rails-assets-highcharts (= 5.0.2)!
   rails-assets-modernizr (= 2.8.3)!
   rails-assets-nprogress!
