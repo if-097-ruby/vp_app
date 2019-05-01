@@ -120,10 +120,26 @@ a:hover {
   font-size: .8rem;
 }
 
+.list-item {
+  margin-left: 4px;
+  margin-right: 4px;
+  list-style-type: none;
+
+  a {
+    color: white;
+  }
+}
+
+.copyright, .footer-list-social-media {
+  display: flex;
+  align-items: center;
+}
+
 .copyright {
   margin: 0;
   font-size: .7rem;
   color: white;
+  justify-content: center;
 }
 
 .rights {
@@ -135,38 +151,12 @@ a:hover {
   }
 }
 
-.footer-menu-list-nav, .footer-menu-list-community {
-  display: flex;
-  align-items: center;
-}
-
-.footer-menu-list-nav {
-  justify-content: center;
-}
-
-.footer-menu-list-community {
+.footer-list-social-media {
   justify-content: flex-end;
-}
-
-.ul {
   margin: 0;
 }
 
-.list-item {
-  margin-left: 4px;
-  margin-right: 4px;
-  list-style-type: none;
-
-  a {
-    color: white;
-  }
-
-  span:hover {
-    text-decoration: underline;
-  }
-}
-
-.logo {
+.logo-social-media {
   width: 20px;
 }
 
