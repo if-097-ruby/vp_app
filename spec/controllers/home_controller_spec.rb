@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PublicPagesController, type: :controller do
-  render_views
+RSpec.describe HomeController, type: :controller do
 
   describe "GET #index" do
     it "returns http success" do

@@ -1,0 +1,55 @@
+$footer-size: 50px;
+$navbar-color: darkblue;
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html, h1, h2, h3, h4, h5, h6, p, a, span, li, div {
+  font-family: RalewayMedium;
+}
+
+/*main style*/
+
+.content {
+  min-height: calc(100vh - #{$footer-size});
+}
+
+.navbar {
+  background: $navbar-color;
+}
+
+/*home-page style*/
+
+#welcome-block {
+  position: absolute;
+  top: 30%;
+  margin: auto;
+  padding: 2em;
+
+  h1 {
+    color: #f97300;
+    text-align: center;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-left: 15%;
+    margin-right: 15%;
+    color: #666;
+  }
+
+  button {
+    color: #fff;
+    border: 2px solid #f97300;
+    background: #f97300;
+
+    &:hover {
+      color: #f97300;
+      background-color: white;
+      transition: .5s ease-in-out ;
+    }
+  }
+}
