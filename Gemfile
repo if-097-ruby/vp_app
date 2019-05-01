@@ -21,6 +21,7 @@ gem 'bootsnap',         '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'rspec-rails',    '~> 3.8'
+  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -33,8 +34,6 @@ end
 
 group :test do
   gem 'capybara',       '>= 2.15'
-  gem 'shoulda-matchers'
-  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
