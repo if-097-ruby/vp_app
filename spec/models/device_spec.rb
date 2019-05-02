@@ -1,28 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe Device, type: :model do
-  subject {
-    described_class.new(name: "Anything", device_type: "Lorem ipsum", device_group_id: "1")
-  }
+  context 'validation tests' do
+    let!(:device) { create (:device) }
 
-  it "is not valid without name" do
-    subject.name = nil
-    expect(subject).to_not be_valid
-  end
+    describe 'factory' do
+      it { is_expected.to be_truthy }
+    end
 
-  it "is not valid without device_type" do
-    subject.device_type = nil
-    expect(subject).to_not be_valid
-  end
+    describe '#name' do
+      it { is_expected.to validate_presence_of(:name) }
+      it { should_not allow_value("a").for(:name) }
+      it { should_not allow_value("a"*41).for(:name) }
+    end
 
-  it "is not valid without device_group_id" do
-    subject.device_group_id = nil
-    expect(subject).to_not be_valid
-  end
+    describe '#device_type' do
+      it { is_expected.to validate_presence_of(:device_type) }
+      it { should_not allow_value("a").for(:device_type) }
+      it { should_not allow_value("a"*41).for(:device_type) }
+    end
 
-  it "is not valid with name, shorter than 3 symbols" do
-    subject.name = "AB"
-    expect(subject).to_not be_valid
+    describe 'association' do
+      it { should belong_to :device_group }
+    end
   end
-  
 end
