@@ -1,0 +1,20 @@
+.animated {
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - #{$footer-size});
+  z-index: 1;
+  min-width: 100vw;
+  margin: 0;
+  animation: slide 20s linear infinite;
+  text-align: center;
+  background-image: url("home-page-back.png");
+}
+
+@keyframes slide {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -400px 0;
+  }
+}

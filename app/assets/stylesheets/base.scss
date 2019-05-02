@@ -1,0 +1,23 @@
+$footer-size: 50px;
+$navbar-color: darkblue;
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html, h1, h2, h3, h4, h5, h6, p, a, span, li, div {
+  font-family: RalewayMedium;
+}
+
+.navbar {
+  background: $navbar-color;
+}
+
+.content {
+  min-height: calc(100vh - #{$footer-size});
+}
+
+a:hover {
+  text-decoration: none;
+}

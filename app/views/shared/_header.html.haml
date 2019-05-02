@@ -1,0 +1,18 @@
+%header.navbar.navbar-expand-lg.fixed-top
+  = link_to root_path do
+    .logo-motto
+      = image_tag  "logo-pic.png", class: "logo-pic"
+      %span SpaceX
+  %nav.collapse.navbar-collapse
+    %ul.navbar-nav.offset-md-2
+      %li
+        = link_to "Pricing", "#", class: "nav-link"
+      %li
+        = link_to "About", "#", class: "nav-link"
+      %li
+        = link_to "Contact Us", "#", class: "nav-link"
+  .header-join
+    = link_to "Join", "#", class: "header-join-sign-up"
+    .text-white
+      or
+    = link_to "Log In", "#", class: "header-join-log-in"
