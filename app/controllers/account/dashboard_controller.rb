@@ -1,4 +1,5 @@
-class Account::DashboardController < Account::ApplicationController
+class Account::DashboardController < ApplicationController
+  layout "dashboard"
 
   def index
   end

@@ -1,4 +1,5 @@
-class Account::UsersController < Account::ApplicationController
+class Account::UsersController < ApplicationController
+  layout "dashboard"
 
   def index
     @users = collection

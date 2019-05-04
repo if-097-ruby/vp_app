@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Account::UsersController, type: :controller do
-  let!(:user) { build(:user) }
+  let!(:user) { create(:user) }
 
   describe "GET index" do
     it "should get index" do
