@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   namespace :account do
-    resources :users, :dashboard
-  end
+    root to: 'dashboard#index'
+    resources :users
+  end  
 end
 
