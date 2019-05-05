@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'home#index'
+  devise_for :users, controllers: { sessions: 'users/sessions' }
 
   namespace :account do
     root to: 'dashboard#index'
     resources :users
-  end  
+  end
 end
-

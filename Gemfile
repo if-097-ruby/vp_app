@@ -31,6 +31,7 @@ gem 'rails-assets-highcharts', '5.0.2', source: 'https://rails-assets.org'
 gem 'rails-assets-font-awesome', '4.6.3', source: 'https://rails-assets.org'
 gem 'rails-assets-chartist', '0.9.8', source: 'https://rails-assets.org'
 gem 'mini_racer'
+gem 'devise'
 
 group :development, :test do
   gem 'factory_bot_rails'
@@ -53,7 +54,6 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
-
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
