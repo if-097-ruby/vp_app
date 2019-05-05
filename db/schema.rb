@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_184900) do
+ActiveRecord::Schema.define(version: 2019_04_26_093344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "device_groups", force: :cascade do |t|
     t.string "name"
-    t.integer "organization"
+    t.integer "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_device_groups_on_organization_id"
   end
   create_table "devices", force: :cascade do |t|
     t.string "name"
@@ -28,10 +29,25 @@ ActiveRecord::Schema.define(version: 2019_04_22_184900) do
     t.integer "device_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["device_group_id"], name: "index_devices_on_device_group_id"
   end
   create_table "organizations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    end
+
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password"
+    t.string "password_confirmation"
+    t.integer "role"
+    t.integer "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end

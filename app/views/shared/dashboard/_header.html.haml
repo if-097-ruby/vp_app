@@ -1,0 +1,26 @@
+.fixed-navbar
+  .pull-left
+    %button.menu-mobile-button.glyphicon.glyphicon-menu-hamburger.js__menu_mobile{:type => "button"}
+    %h1.page-title Home
+    / /.page-title
+  / /.pull-left
+  .pull-right
+    .ico-item
+      %a.ico-item.ti-search.js__toggle_open{"data-target" => "#searchform-header", :href => "#"}
+      %form#searchform-header.searchform.js__toggle{:action => "#"}
+        %input.input-search{:placeholder => "Search...", :type => "search"}/
+        %button.ti-search.button-search{:type => "submit"}
+      / /.searchform
+    / /.ico-item
+    %a.ico-item.ti-email.notice-alarm.js__toggle_open{"data-target" => "#message-popup", :href => "#"}
+    %a.ico-item.ti-bell.notice-alarm.js__toggle_open{"data-target" => "#notification-popup", :href => "#"}
+    .ico-item
+      %i.ti-user
+      %ul.sub-ico-item
+        %li
+          %a{:href => "#"} Settings
+        %li
+          %a.js__logout{:href => "#"} Log Out
+      / /.sub-ico-item
+  / /.pull-right
+/ /.fixed-navbar
