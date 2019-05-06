@@ -24,7 +24,6 @@ gem "jquery-rails"
 gem 'popper_js', '~> 1.14.3'
 gem 'rails-assets-themify-icons', source: 'https://rails-assets.org'
 gem 'rails-assets-waves', '0.7.5', source: 'https://rails-assets.org'
-gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
 gem 'rails-assets-modernizr', '2.8.3', source: 'https://rails-assets.org'
 gem 'rails-assets-nprogress', source: 'https://rails-assets.org'
 gem 'rails-assets-highcharts', '5.0.2', source: 'https://rails-assets.org'
