@@ -12,7 +12,7 @@
       %li
         = link_to "Contact Us", "#", class: "nav-link"
   .header-join
-    = link_to "Join", "#", class: "header-join-sign-up"
+    = link_to "Join", new_user_registration_path, class: "header-join-sign-up"
     .text-white
       or
-    = link_to "Log In", "#", class: "header-join-log-in"
+    = link_to "Log In", new_user_session_path, class: "header-join-log-in"

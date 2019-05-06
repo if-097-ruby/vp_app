@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+
+  devise_for :users, controllers: { registrations: "users/registrations"}
 
   namespace :account do
     root to: 'dashboard#index'
