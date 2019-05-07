@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def new
     resource = build_resource
-    resource.build_own_organization
+    resource.build_organization
     respond_with resource
   end
 
@@ -22,7 +22,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update_resource(resource, params)
     resource.update_without_password(params)
   end
-  
+
 =begin
   private
 
