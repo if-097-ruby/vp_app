@@ -3,8 +3,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   enum role: [:member, :admin, :super_admin]
 
-  belongs_to :organization
-  accepts_nested_attributes_for :organization
+  has_one :own_organization, class_name: 'Organization', foreign_key: 'owner_id'
+  belongs_to :organization, optional: true
+  accepts_nested_attributes_for :own_organization
 
   validates :first_name, :last_name, presence: true, length: { in: 2..50 }
 end
