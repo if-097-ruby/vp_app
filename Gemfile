@@ -12,6 +12,7 @@ gem 'uglifier',         '>= 1.3.0'
 gem 'webpacker',        "4.0.2"
 gem 'react_on_rails',   '11.1.4'
 gem 'bootstrap',        '~> 4.3.1'
+gem 'devise'
 gem 'sprockets-rails',  '2.3.3'
 gem 'coffee-rails',     '~> 4.2'
 gem 'turbolinks',       '~> 5'
