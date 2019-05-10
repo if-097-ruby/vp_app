@@ -12,14 +12,28 @@ gem 'uglifier',         '>= 1.3.0'
 gem 'webpacker',        "4.0.2"
 gem 'react_on_rails',   '11.1.4'
 gem 'bootstrap',        '~> 4.3.1'
-gem 'jquery-rails'
 gem 'sprockets-rails',  '2.3.3'
 gem 'coffee-rails',     '~> 4.2'
 gem 'turbolinks',       '~> 5'
 gem 'jbuilder',         '~> 2.5'
 gem 'bootsnap',         '>= 1.1.0', require: false
+gem 'simple_form'
+gem 'pry', '~> 0.12.2'
+gem 'sassc-rails', '>=2.1.0'
+gem "jquery-rails"
+gem 'popper_js', '~> 1.14.3'
+gem 'rails-assets-themify-icons', source: 'https://rails-assets.org'
+gem 'rails-assets-waves', '0.7.5', source: 'https://rails-assets.org'
+gem 'rails-assets-modernizr', '2.8.3', source: 'https://rails-assets.org'
+gem 'rails-assets-nprogress', source: 'https://rails-assets.org'
+gem 'rails-assets-highcharts', '5.0.2', source: 'https://rails-assets.org'
+gem 'rails-assets-font-awesome', '4.6.3', source: 'https://rails-assets.org'
+gem 'rails-assets-chartist', '0.9.8', source: 'https://rails-assets.org'
+gem 'mini_racer'
 
 group :development, :test do
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
