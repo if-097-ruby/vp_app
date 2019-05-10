@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Account::User, type: :model do
+RSpec.describe User, type: :model do
   context 'validation tests' do
     let!(:user) { build(:user) }
 
