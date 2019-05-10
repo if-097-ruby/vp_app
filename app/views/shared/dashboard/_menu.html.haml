@@ -15,6 +15,11 @@
             %a.waves-effect{:href => "index.html"}
               %i.menu-icon.ti-dashboard
               %span Dashboard
+          %li
+            %a.waves-effect{:href => "<%= account_user_path(current_user) %>"}
+              %i.menu-icon.ti-user
+              %span Profile
+
       / /.navigation
     / /.content
   / /.main-menu
