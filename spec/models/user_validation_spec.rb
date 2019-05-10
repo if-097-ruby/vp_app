@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   context 'validation tests' do
-    let!(:user) { build(:user) }
+    let!(:user) { create(:user) }
 
     describe 'factory' do
       it { is_expected.to be_truthy }
@@ -10,22 +10,10 @@ RSpec.describe User, type: :model do
 
     describe '#first_name' do
       it { is_expected.to validate_presence_of(:first_name) }
-
-      it 'does not save the object with 1 letter' do
-        user.first_name = 'A'
-        expect(user).not_to be_valid
-        expect(user.errors[:first_name]).to include("is too short (minimum is 2 characters)")
-      end
     end
 
     describe '#last_name' do
       it { is_expected.to validate_presence_of(:last_name) }
-
-      it 'does not save the object with 50+ letters' do
-        user.first_name = "A"*51
-        expect(user).not_to be_valid
-        expect(user.errors[:first_name]).to include("is too long (maximum is 50 characters)")
-      end
     end
 
     describe '#email' do
