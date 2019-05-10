@@ -6,9 +6,8 @@
           .profile-avatar
             %img{:alt => "", :src => "http://placehold.it/450x450"}/
             %h3
-              %strong Betty Simmons
-            %h4 Owner at Our Company, Inc.
-            %p Ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+              %strong.user_name
+                #{current_user.first_name + " " + current_user.last_name}
           / .profile-avatar
         / /.box-content bordered
       / /.col-md-3 col-xs-12
@@ -20,20 +19,6 @@
                 %i.fa.fa-user.ico>
                 About
               / /.box-title
-              .dropdown.js__drop_down
-                %a.dropdown-icon.glyphicon.glyphicon-option-vertical.js__drop_down_button{:href => "#"}
-                %ul.sub-menu
-                  %li
-                    %a{:href => "#"} Action
-                  %li
-                    %a{:href => "#"} Another action
-                  %li
-                    %a{:href => "#"} Something else there
-                  %li.split
-                  %li
-                    %a{:href => "#"} Separated link
-                / /.sub-menu
-              / /.dropdown js__dropdown
               .card-content
                 .row
                   .col-md-6
@@ -41,7 +26,7 @@
                       .col-xs-5
                         %label First Name:
                       / /.col-xs-5
-                      .col-xs-7 Betty
+                      .col-xs-7 #{current_user.first_name}
                       / /.col-xs-7
                     / /.row
                   / /.col-md-6
@@ -50,7 +35,7 @@
                       .col-xs-5
                         %label Last Name:
                       / /.col-xs-5
-                      .col-xs-7 Simmons
+                      .col-xs-7 #{current_user.last_name}
                       / /.col-xs-7
                     / /.row
                   / /.col-md-6
@@ -59,7 +44,7 @@
                       .col-xs-5
                         %label User Name:
                       / /.col-xs-5
-                      .col-xs-7 Betty
+                      .col-xs-7 #{current_user.first_name + " " + current_user.last_name}
                       / /.col-xs-7
                     / /.row
                   / /.col-md-6
@@ -68,7 +53,14 @@
                       .col-xs-5
                         %label Email:
                       / /.col-xs-5
-                      .col-xs-7 youremail@gmail.com
+                      .col-xs-7 #{current_user.email}
+                      / /.col-xs-7
+                  .col-md-6
+                    .row
+                      .col-xs-5
+                        %a{:href => "#{edit_account_user_path(current_user.id)}"}
+                          %label Edit
+                      / /.col-xs-5
                       / /.col-xs-7
                     / /.row
                   / /.col-md-6

@@ -11,14 +11,15 @@
         %h5.title Navigation
         / /.title
         %ul.menu.js__accordion
-          %li.current
-            %a.waves-effect{:href => "index.html"}
+          %li
+            %a.waves-effect{:href => "#{account_root_path}"}
               %i.menu-icon.ti-dashboard
               %span Dashboard
           %li
-            %a.waves-effect{:href => "<%= account_user_path(current_user) %>"}
+            %a.waves-effect{:href => "#{account_user_path(current_user.id)}"}
               %i.menu-icon.ti-user
               %span Profile
+
 
       / /.navigation
     / /.content
