@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   get '/pricing',   to: 'home#pricing'
+  get '/about', to: 'home#about'
 
   namespace :account do
     root to: 'dashboard#index'

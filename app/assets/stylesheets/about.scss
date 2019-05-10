@@ -1,0 +1,53 @@
+$color_1: #000000;
+$color_2: black;
+$font_family_1: "Arial Black", Gadget, sans-serif;
+
+#about-page {
+  font: 20px Montserrat, sans-serif;
+  line-height: 1.8;
+  color: $color_1;
+  p {
+    font-size: 16px;
+  }
+  .title {
+    margin-bottom: 45px;
+    font-family: $font_family_1;
+    color: $color_2;
+    font-size: 5em;
+  }
+  .margin-2 {
+    margin-bottom: 45px;
+  }
+  .bg-1 {
+    background-image: url(hero.jpg);
+    background-color: #000000;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  .container-fluid {
+    height: 530px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .description {
+    font-size: 30px !important;
+    margin-right: 60px;
+    margin-left: 60px;
+    margin-bottom: 50px;
+  }
+  .ab-row {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    .img-responsive {
+      margin-bottom: 20px;
+      width: 60%;
+    }
+    p {
+      font-style: italic;
+      font-weight: bold;
+    }
+  }
+}
