@@ -7,7 +7,7 @@ $font_family_1: "Arial Black", Gadget, sans-serif;
   line-height: 1.8;
   color: $color_1;
   p {
-    font-size: 16px;
+    font-size: 20px;
   }
   .title {
     margin-bottom: 45px;
@@ -15,9 +15,7 @@ $font_family_1: "Arial Black", Gadget, sans-serif;
     color: $color_2;
     font-size: 5em;
   }
-  .margin-2 {
-    margin-bottom: 45px;
-  }
+  
   .bg-1 {
     background-image: url(hero.jpg);
     background-color: #000000;
@@ -26,26 +24,28 @@ $font_family_1: "Arial Black", Gadget, sans-serif;
     background-attachment: fixed;
     background-size: cover;
   }
-  .container-fluid {
+  .container {
+    width: 100%;
     height: 530px;
     padding-top: 70px;
-    padding-bottom: 70px;
+    padding-bottom: 50px;
   }
   .description {
     font-size: 30px !important;
     margin-right: 60px;
     margin-left: 60px;
     margin-bottom: 50px;
+    margin-top: 20px;
   }
   .ab-row {
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
     .img-responsive {
-      margin-bottom: 20px;
       width: 60%;
     }
     p {
+      margin-top: 20px;
       font-style: italic;
       font-weight: bold;
     }
