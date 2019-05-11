@@ -4,11 +4,16 @@
       .col-md-3.col-xs-12
         .box-content.bordered.primary.margin-bottom-20
           .profile-avatar
-            %img{:alt => "", :src => "http://placehold.it/450x450"}/
+            - if @user.avatar.attached?
+              %img{ src: "#{url_for(@user.avatar)}"}
+            - else
+              .profile-gravatar 
+              = gravatar_image_tag("gravatar.com/emails")
             %h3
               %strong.user_name
                 #{current_user.first_name + " " + current_user.last_name}
-          / .profile-avatar
+          
+          / / .profile-avatar
         / /.box-content bordered
       / /.col-md-3 col-xs-12
       .col-md-9.col-xs-12
@@ -21,6 +26,15 @@
               / /.box-title
               .card-content
                 .row
+                  .col-md-6
+                    .row
+                      .col-xs-5
+                        %label Full Name:
+                      / /.col-xs-5
+                      .col-xs-7 #{current_user.first_name + " " + current_user.last_name}
+                      / /.col-xs-7
+                    / /.row
+                  / /.col-md-6
                   .col-md-6
                     .row
                       .col-xs-5
@@ -42,15 +56,6 @@
                   .col-md-6
                     .row
                       .col-xs-5
-                        %label User Name:
-                      / /.col-xs-5
-                      .col-xs-7 #{current_user.first_name + " " + current_user.last_name}
-                      / /.col-xs-7
-                    / /.row
-                  / /.col-md-6
-                  .col-md-6
-                    .row
-                      .col-xs-5
                         %label Email:
                       / /.col-xs-5
                       .col-xs-7 #{current_user.email}
@@ -58,8 +63,28 @@
                   .col-md-6
                     .row
                       .col-xs-5
+                        %label Created At:
+                      / /.col-xs-5
+                      .col-xs-7 #{current_user.created_at.to_date}
+                      .col-xs-7 #{current_user.updated_at.strftime("%H:%M")}
+                      / /.col-xs-7
+                    / /.row
+                  / /.col-md-6
+                  .col-md-6
+                    .row
+                      .col-xs-5
+                        %label Last Profile update:
+                      / /.col-xs-5
+                      .col-xs-7 #{current_user.updated_at.to_date}
+                      .col-xs-7 #{current_user.updated_at.strftime("%H:%M")}
+                      / /.col-xs-7
+                    / /.row
+                  / /.col-md-6
+                  .col-md-6
+                    .row
+                      .col-xs-5
                         %a{:href => "#{edit_account_user_path(current_user.id)}"}
-                          %label Edit
+                          %label Edit Profile
                       / /.col-xs-5
                       / /.col-xs-7
                     / /.row

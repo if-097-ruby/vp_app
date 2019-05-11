@@ -15,6 +15,9 @@
       input_html: { autocomplete: "new-password" }
     = f.input :password_confirmation,
       input_html: { autocomplete: "new-password" }
+    = f.label 'Profile photo'
+    %br/
+    = f.file_field :avatar
   .form-actions
     = f.button :submit, "Sign up"
 = render "devise/shared/links"

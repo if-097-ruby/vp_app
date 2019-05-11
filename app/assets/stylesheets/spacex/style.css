@@ -102,7 +102,7 @@ body {
 	}
 }
 img {
-	max-width: 100%;
+	width: 300px;
 	height: auto;
 	-webkit-backface-visibility: hidden;
 }
@@ -4776,5 +4776,9 @@ textarea.form-control {
 }
 .sweet-alert.visible .sa-icon.sa-error .sa-line {
 	background: #f60e0e;
+}
+
+.profile-gravatar {
+	width: 300px; 
 }
 /*---------------------------------------------------------------------*/

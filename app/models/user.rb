@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_one_attached :avatar
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -11,4 +13,6 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :own_organization
 
   validates :first_name, :last_name, presence: true, length: { in: 2..50 }
+
+
 end
