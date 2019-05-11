@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Registrations", type: :feature do
-  context("create new user") do
+  context("registration process") do
     before(:each) do
       visit new_user_registration_path
       within('form') do
@@ -25,6 +25,20 @@ RSpec.feature "Registrations", type: :feature do
     scenario "should fail" do
       click_button "Sign up"
       expect(page).to have_content("Name can't be blank")
+    end
+  end
+
+  context("log in process") do
+    let!(:user) { create(:user) }
+
+    scenario "should be successful" do
+      visit new_user_session_path
+      within('form') do
+        fill_in 'Email', with: user.email
+        fill_in 'Password', with: user.password
+      end
+      click_button 'Log in'
+      expect(page).to have_content 'Welcome to SpaceX!'
     end
   end
 end
