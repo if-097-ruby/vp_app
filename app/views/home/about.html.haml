@@ -1,34 +1,37 @@
-- content_for :background do 'animated' end
-#about-page
-  .container.bg-1.text-center
-  .container.text-center
-    %h1.logo Who we are?
-    .row
-      .description.text-center
-        %p
-          %i
-            <strong>SpaceX®</strong> is a self-publishing and marketing platform that unleashes the creative genius inside everyone. SpaceX's platform makes it easy to design, publish, promote, and sell professional-quality printed books and ebooks.            
-            SpaceX was founded by Eileen Gittins in 2005, and includes a team of design, Internet and media veterans who share a passion for helping people bring their stories to life. SpaceX authors have created millions of books using our full suite of free book-making tools, and today a new book is created every minute. SpaceX is based in San Francisco with offices in London.
+%div
+  .container-about.bg-1
+  .container.container-about
+    %h1.title Who we are?
+    .description
+      %p.text
+        %i
+          %strong SpaceX®
+          is a self-publishing and marketing platform that unleashes the creative genius inside everyone.
+          SpaceX's platform makes it easy to design, publish, promote, and sell professional-quality printed books and ebooks.
+          SpaceX was founded by Eileen Gittins in 2005, and includes a team of design, Internet and media veterans
+          who share a passion for helping people bring their stories to life. SpaceX authors have created millions of books using
+          our full suite of free book-making tools, and today a new book is created every minute.
+          SpaceX is based in San Francisco with offices in London.
     %h2
       %strong Our core values and priorities
-    %br/
+    %br
     .row
       .col-sm-4
-        %p We believe that this is essential to respect and encourage free expressions for all, to embrace our differences, opinions and diverse backgrounds, while also providing a warm environment that nurtures and supports us all.
+        %p.text We believe that this is essential to respect and encourage free expressions for all, to embrace our differences, opinions and diverse backgrounds, while also providing a warm environment that nurtures and supports us all.
       .col-sm-4
-        %p We trust that having open and accessible information is one of the best ways to help others, and ourselves. That is why we have a transparency policy towards our customers and within our team.
+        %p.text We trust that having open and accessible information is one of the best ways to help others, and ourselves. That is why we have a transparency policy towards our customers and within our team.
       .col-sm-4
-        %p We love what we do, and we work hard to ship things fast, but we also don’t take ourselves too seriously! Having a relaxed and friendly environment is key to brining better results across our teams, and to our customers.
+        %p.text We love what we do, and we work hard to ship things fast, but we also don’t take ourselves too seriously! Having a relaxed and friendly environment is key to brining better results across our teams, and to our customers.
     .ab-row
-      .col-sm-4
+      .col-sm-3
         = image_tag("mini1.png", class: "img-responsive.center-block")
         %p Strategy
-      .col-sm-4
+      .col-sm-3
         = image_tag("mini2.png", class: "img-responsive.center-block")
         %p Creativity
-      .col-sm-4
+      .col-sm-3
         = image_tag("mini3.png", class: "img-responsive.center-block")
         %p Stability
-      .col-sm-4
+      .col-sm-3
         = image_tag("mini4.png", class: "img-responsive.center-block")
         %p Client orientation

@@ -1,49 +1,38 @@
-$color_1: #000000;
-$color_2: black;
+$color_1: black;
 $font_family_1: "Arial Black", Gadget, sans-serif;
 
-#about-page {
-  font: 20px Montserrat, sans-serif;
-  line-height: 1.8;
-  color: $color_1;
-  p {
+.bg-1 {
+  background: fixed $color_1 url(hero.jpg) center center no-repeat;
+  background-size: cover;
+  height: 530px;
+  width: 100%;
+}
+
+
+.container-about {
+  padding: 60px 0 50px 0;
+
+  .text {
     font-size: 20px;
+    text-align: justify;
   }
+
   .title {
-    margin-bottom: 45px;
+    margin-bottom: 30px;
     font-family: $font_family_1;
-    color: $color_2;
-    font-size: 5em;
+    color: $color_1;
+    font-size: 60px;
   }
-  
-  .bg-1 {
-    background-image: url(hero.jpg);
-    background-color: #000000;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-  }
-  .container {
-    width: 100%;
-    height: 530px;
-    padding-top: 70px;
-    padding-bottom: 50px;
-  }
-  .description {
-    font-size: 30px !important;
-    margin-right: 60px;
-    margin-left: 60px;
-    margin-bottom: 50px;
-    margin-top: 20px;
-  }
+
   .ab-row {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 10px;
+
     .img-responsive {
       width: 60%;
     }
+
     p {
       margin-top: 20px;
       font-style: italic;
