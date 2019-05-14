@@ -1,15 +1,14 @@
-class Contact < MailForm::Base
-  attribute :name,      :validate => true
-  attribute :email,     :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
-  attribute :message
-  attribute :nickname,  :captcha  => true
+class Contact < ActiveRecord::Base
 
-  # Declare the e-mail headers. 
-  def headers
-    {
-      :subject => "My Contact Form",
-      :to => "vikaluk@gmail.com",
-      :from => %("#{name}" <#{email}>)
+  validates :name, :presence => :true
+
+  validates :email, 
+    :presence => :true,
+    :format => { 
+      :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
+      :message => "must be a valid email address"
     }
-  end
+
+  validates :message, :presence => :true
+
 end

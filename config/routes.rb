@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   
   root 'home#index'
 
-  resources "contacts", only: [:create]
-  get '/contacts', to: 'contacts#new'
+  resources :contacts, only: [:new, :create]
 
   namespace :account do
     root to: 'dashboard#index'
