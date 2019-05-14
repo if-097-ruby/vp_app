@@ -7,11 +7,10 @@
             - if @user.avatar.attached?
               %img{ src: "#{url_for(@user.avatar)}"}
             - else
-              .profile-gravatar 
-              = gravatar_image_tag("gravatar.com/emails")
-            %h3
-              %strong.user_name
-                #{current_user.first_name + " " + current_user.last_name}
+              %img.user-icon{ src: "https://cdn1.iconfinder.com/data/icons/rcons-user-action/512/user-512.png"}
+          %h3
+            %strong.user_name
+              #{current_user.first_name + " " + current_user.last_name}
           
           / / .profile-avatar
         / /.box-content bordered
