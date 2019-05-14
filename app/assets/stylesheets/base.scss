@@ -4,7 +4,6 @@ $navbar-color: darkblue;
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
 
 html, h1, h2, h3, h4, h5, h6, p, a, span, li, div {
@@ -17,7 +16,7 @@ html, h1, h2, h3, h4, h5, h6, p, a, span, li, div {
 
 .content {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
 a:hover {
