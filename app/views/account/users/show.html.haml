@@ -10,7 +10,7 @@
               %img.user-icon{ src: "https://cdn1.iconfinder.com/data/icons/rcons-user-action/512/user-512.png"}
           %h3
             %strong.user_name
-              #{current_user.first_name + " " + current_user.last_name}
+              #{@user.first_name + " " + @user.last_name}
           
           / / .profile-avatar
         / /.box-content bordered
@@ -30,7 +30,7 @@
                       .col-xs-5
                         %label Full Name:
                       / /.col-xs-5
-                      .col-xs-7 #{current_user.first_name + " " + current_user.last_name}
+                      .col-xs-7 #{@user.first_name + " " + @user.last_name}
                       / /.col-xs-7
                     / /.row
                   / /.col-md-6
@@ -39,7 +39,7 @@
                       .col-xs-5
                         %label First Name:
                       / /.col-xs-5
-                      .col-xs-7 #{current_user.first_name}
+                      .col-xs-7 #{@user.first_name}
                       / /.col-xs-7
                     / /.row
                   / /.col-md-6
@@ -48,7 +48,7 @@
                       .col-xs-5
                         %label Last Name:
                       / /.col-xs-5
-                      .col-xs-7 #{current_user.last_name}
+                      .col-xs-7 #{@user.last_name}
                       / /.col-xs-7
                     / /.row
                   / /.col-md-6
@@ -57,15 +57,15 @@
                       .col-xs-5
                         %label Email:
                       / /.col-xs-5
-                      .col-xs-7 #{current_user.email}
+                      .col-xs-7 #{@user.email}
                       / /.col-xs-7
                   .col-md-6
                     .row
                       .col-xs-5
                         %label Created At:
                       / /.col-xs-5
-                      .col-xs-7 #{current_user.created_at.to_date}
-                      .col-xs-7 #{current_user.created_at.strftime("%H:%M")}
+                      .col-xs-7 #{@user.created_at.to_date}
+                      .col-xs-7 #{@user.created_at.strftime("%H:%M")}
                       / /.col-xs-7
                     / /.row
                   / /.col-md-6
@@ -74,16 +74,17 @@
                       .col-xs-5
                         %label Last Profile update:
                       / /.col-xs-5
-                      .col-xs-7 #{current_user.updated_at.to_date}
-                      .col-xs-7 #{current_user.updated_at.strftime("%H:%M")}
+                      .col-xs-7 #{@user.updated_at.to_date}
+                      .col-xs-7 #{@user.updated_at.strftime("%H:%M")}
                       / /.col-xs-7
                     / /.row
                   / /.col-md-6
                   .col-md-6
                     .row
                       .col-xs-5
-                        %a{:href => "#{edit_user_registration_path}"}
-                          %label Edit Profile
+                        - if (current_user.id == @user.id)
+                          %a{:href => "#{edit_user_registration_path}"}
+                            %label Edit Profile
                       / /.col-xs-5
                       / /.col-xs-7
                     / /.row
