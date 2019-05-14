@@ -1,0 +1,15 @@
+.cont
+  %h1 Device groups
+  %table
+    %thead
+      %tr
+        %th Name
+    %tbody
+      = @device_groups.each do |device_group|
+        %tr
+          %td
+            = device_group.name
+          %td
+            = link_to "Edit", edit_device_groups_path(device_group)
+          %td
+            = link_to "Delete", device_groups_path(device_group), method: :delete, data: {confirm: "Are you sure?"}

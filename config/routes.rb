@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   namespace :account do
     root to: 'dashboard#index'
     resources :users
-  end  
+  end
+
+  resources :device_groups
 end
