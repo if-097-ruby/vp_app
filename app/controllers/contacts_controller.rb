@@ -9,7 +9,8 @@ class ContactsController < ApplicationController
     
     if @contact.save
       ContactsMailer.general_message(@contact).deliver
-      render :create
+      redirect_to root_path
+      flash[:success] = "Message was successfully delivered"
     else
       render :new
     end
