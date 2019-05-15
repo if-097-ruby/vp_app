@@ -53,10 +53,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def send_signup_emails
-    if @user.persisted?
+      return if @user.new_record?
       SignupMailer.with(user: @user).welcome_email.deliver_now 
       SignupMailer.with(user: @user, organization: @organization).new_organization_created_email.deliver_now
-    end
   end
   
 end
