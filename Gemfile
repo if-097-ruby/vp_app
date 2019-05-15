@@ -51,6 +51,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'rspec-rails',    '~> 3.8'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
+  gem 'rails-controller-testing'
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
 
