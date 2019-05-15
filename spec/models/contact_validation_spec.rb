@@ -18,8 +18,8 @@ RSpec.describe Contact, type: :model do
   end
 
   describe '#email' do
-    it { should_not allow_value("blah").for(:email) }
-    it { should allow_value("a@b.com").for(:email) }
+    it { expect(contact).to_not allow_value("base@example").for(:email) }
+    it { expect(contact).to allow_value("dhh@nonopinionated.com").for(:email) }
     it { is_expected.to validate_presence_of(:email) }
   end
 end

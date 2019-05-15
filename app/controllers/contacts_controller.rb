@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  add_flash_types :success
   
   def new
     @contact = Contact.new
@@ -8,9 +9,8 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     
     if @contact.save
-      ContactsMailer.general_message(@contact).deliver
-      redirect_to root_path
-      flash[:success] = "Message was successfully delivered"
+      ContactsMailer.general_message(@contact).deliver_now
+      redirect_to root_path, success: "Message was successfully delivered"
     else
       render :new
     end
@@ -21,5 +21,5 @@ class ContactsController < ApplicationController
   def contact_params
     params.require(:contact).permit(:name, :email, :message)
   end
-    
+
 end
