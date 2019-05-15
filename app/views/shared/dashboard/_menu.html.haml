@@ -8,7 +8,7 @@
     / /.header
     .content
       .navigation
-        %a{:href => "#{account_user_path(current_user.id)}"}
+        %a{:href => "#{account_profile_path}"}
           - if current_user.avatar.attached?
             %img.mini-avatar{ src: "#{url_for(current_user.avatar)}"}
           - else
@@ -22,7 +22,7 @@
               %i.menu-icon.ti-dashboard
               %span Dashboard
           %li
-            %a.waves-effect{:href => "#{account_user_path(current_user.id)}"}
+            %a.waves-effect{:href => "#{account_profile_path}"}
               %i.menu-icon.ti-user
               %span Profile
 
