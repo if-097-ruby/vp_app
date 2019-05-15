@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, only: :create
   before_action :configure_account_update_params, only: :update
-  after_action :send_welcome_email, on: :create
+  after_action :send_signup_emails, on: :create
 
   # GET /resource/sign_up
   def new
@@ -52,8 +52,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super(resource)
   end
 
-  def send_welcome_email
+  def send_signup_emails
     SignupMailer.with(user: @user).welcome_email.deliver_now if @user.persisted?
+    SignupMailer.with(user: @user, organization: @organization).new_organization_created_email.deliver_now if @user.persisted?
   end
   
 end
