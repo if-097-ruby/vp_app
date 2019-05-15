@@ -155,7 +155,7 @@
         .box-content
           .statistics-box.with-icon
             %i.ico.ti-user.text-primary
-            %h2.counter.text-inverse Hello, user
+            %h2.counter.text-inverse Hello, #{current_user.first_name}
             %p.text= Time.now.strftime(" %I:%M%p")
           / .statistics-box .with-icon
         / /.box-content
