@@ -1,1 +1,89 @@
-%p New user
+#wrapper
+  .main-content
+    .row.small-spacing
+      .col-md-3.col-xs-12
+        .box-content.bordered.primary.margin-bottom-20
+          .profile-avatar
+            %img{:alt => "", :src => "http://placehold.it/450x450"}/
+            %h3
+              = link_to 'My Profile', account_user_path(current_user.id)
+            %h4 Owner at Our Company, Inc.
+            %p Ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+          / .profile-avatar
+        / /.box-content bordered
+      / /.col-md-3 col-xs-12
+      .col-md-9.col-xs-12
+        .row
+          .col-xs-12
+            .box-content.card
+              %h4.box-title
+                %i.fa.fa-user.ico>
+                About
+              / /.box-title
+              .dropdown.js__drop_down
+                %a.dropdown-icon.glyphicon.glyphicon-option-vertical.js__drop_down_button{:href => "#"}
+                %ul.sub-menu
+                  %li
+                    %a{:href => "#"} Action
+                  %li
+                    %a{:href => "#"} Another action
+                  %li
+                    %a{:href => "#"} Something else there
+                  %li.split
+                  %li
+                    %a{:href => "#"} Separated link
+                / /.sub-menu
+              / /.dropdown js__dropdown
+              .card-content
+                .row
+                  .col-md-6
+                    .row
+                      .col-xs-5
+                        %label First Name:
+                      / /.col-xs-5
+                      .col-xs-7 Betty
+                      / /.col-xs-7
+                    / /.row
+                  / /.col-md-6
+                  .col-md-6
+                    .row
+                      .col-xs-5
+                        %label Last Name:
+                      / /.col-xs-5
+                      .col-xs-7 Simmons
+                      / /.col-xs-7
+                    / /.row
+                  / /.col-md-6
+                  .col-md-6
+                    .row
+                      .col-xs-5
+                        %label User Name:
+                      / /.col-xs-5
+                      .col-xs-7 Betty
+                      / /.col-xs-7
+                    / /.row
+                  / /.col-md-6
+                  .col-md-6
+                    .row
+                      .col-xs-5
+                        %label Email:
+                      / /.col-xs-5
+                      .col-xs-7 youremail@gmail.com
+                      / /.col-xs-7
+                    / /.row
+                  / /.col-md-6
+                  .col-md-6
+                  / /.col-md-6
+                  .col-md-6
+                  / /.col-md-6
+                  .col-md-6
+                  / /.col-md-6
+                / /.row
+              / /.card-content
+            / /.box-content card
+          / /.col-md-12
+      / /.col-md-9 col-xs-12
+    / /.row small-spacing
+  / /.main-content
+/ /#wrapper
+
