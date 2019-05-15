@@ -2,19 +2,32 @@ require 'rails_helper'
 
 RSpec.describe Account::DashboardController, type: :controller do
   render_views
-  let!(:user) { create(:user) }
 
-  describe "Index action" do
-    it "renders index template if user signed in" do
-      sign_in user
-      get :index
-      expect(response).to have_http_status(200)
-      expect(response).to render_template("index")
+  describe 'GET #index' do
+    context 'with signed in user' do
+      let!(:user) { create(:user) }
+
+      before(:each) do
+        sign_in user
+
+        get :index
+      end
+
+      subject { response }
+
+      it { is_expected.to have_http_status(200) }
+      it { is_expected.to render_template('index') }
     end
 
-    it "doesn't render index action if user is not signed in" do
-    	get :index
-    	expect(response).to_not have_http_status(200)
+    context 'with guest user' do
+      before(:each) do
+        get :index
+      end
+
+      subject { response }
+
+      it { is_expected.to be_redirect }
+      it { is_expected.to redirect_to('/login') }
     end
   end
 end
