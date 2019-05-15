@@ -1,45 +1,13 @@
-.main-content  
-  .container
-  %h1 Edit Profile
-  %hr/
-  .row
-    / left column
-    .col-md-3
-      .text-center
-        - if current_user.avatar.attached?
-          %img{ src: "#{url_for(current_user.avatar)}"}
-        - else
-          %img.user-icon{ src: "https://cdn1.iconfinder.com/data/icons/rcons-user-action/512/user-512.png"}
-        %h6 Upload a different photo...
-        %input.form-control{:type => "file"}/
-    / edit form column
-    .col-md-9.personal-info
-      %form.form-horizontal{role: "form"}
-        .form-group
-          %label.col-lg-3.control-label First name:
-          .col-lg-8
-            %input.form-control{type: "text", value: "#{current_user.first_name}"}/
-        .form-group
-          %label.col-lg-3.control-label Last name:
-          .col-lg-8
-            %input.form-control{:type => "text", :value => "#{current_user.last_name}"}/
-        .form-group
-          %label.col-lg-3.control-label Email:
-          .col-lg-8
-            %input.form-control{:type => "text", :value => "#{current_user.email}"}/
-        .form-group
-          %label.col-md-3.control-label Password:
-          .col-md-8
-            %input.form-control{:type => "password"}/
-        .form-group
-          %label.col-md-3.control-label Confirm password:
-          .col-md-8
-            %input.form-control{:type => "password"}/
-        .form-group
-          %label.col-md-3.control-label
-          .col-md-8
-            %input.btn.btn-primary{:type => "button", :value => "Save Changes"}/
-            %span
-            %a{:href => "#{account_profile_path}"}
-              %input.btn.btn-default{:type => "reset", :value => "Cancel"}/
-%hr/
+%h1 Update your profile
+.row
+  .span6.offset3
+    = form_for current_user, url: edit_account_profile_path(current_user), html: { method: :put } do |f|
+      = f.label :first_name
+      = f.text_field :first_name
+      = f.label :email
+      = f.text_field :email
+      = f.label :password
+      = f.password_field :password
+      = f.label :password_confirmation, "Confirm Password"
+      = f.password_field :password_confirmation
+      = f.submit "Save changes", class: "btn btn-large btn-primary"
