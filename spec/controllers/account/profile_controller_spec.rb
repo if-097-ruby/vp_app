@@ -3,6 +3,9 @@ require 'rails_helper'
 RSpec.describe Account::ProfilesController, type: :controller do
   render_views
 
+  let!(:params) { { user: { first_name: 'hah', last_name: 'foo', email: 'asdf@sdfas.com', 
+    password: 'qwerty', password_confirmation: 'qwerty', organization_id: 1 } } }
+
   describe 'GET #show' do
     context 'with signed in user' do
       let!(:user) { create(:user) }
