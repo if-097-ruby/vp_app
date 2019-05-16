@@ -10,6 +10,6 @@
           %td
             = device_group.name
           %td
-            = link_to "Edit", edit_device_groups_path(device_group)
+            = link_to "Edit", edit_account_device_groups_path(device_group)
           %td
-            = link_to "Delete", device_groups_path(device_group), method: :delete, data: {confirm: "Are you sure?"}
+            = link_to "Delete", account_device_groups_path(device_group), method: :delete, data: {confirm: "Are you sure?"}
