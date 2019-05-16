@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   root 'home#index'
   get '/about', to: 'home#about'
+  get '/pricing', to: 'home#pricing'
 
   resources :contacts, only: [:new, :create]
 
