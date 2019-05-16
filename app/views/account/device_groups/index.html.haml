@@ -1,6 +1,6 @@
-.cont
+.container.col-md-6
   %h1 Device groups
-  %table
+  %table.text-left
     %thead
       %tr
         %th Name
@@ -8,7 +8,7 @@
       = @device_group.each do |device_group|
         %tr
           %td
-            = device_group.name
+            = link_to  device_group.name, account_device_groups_path(device_group)
           %td
             = link_to "Edit", edit_account_device_groups_path(device_group)
           %td

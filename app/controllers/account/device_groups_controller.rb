@@ -1,4 +1,5 @@
 class Account::DeviceGroupsController < ApplicationController
+  layout "dashboard"
 
   def index
     @device_group = DeviceGroup.all
@@ -17,7 +18,7 @@ class Account::DeviceGroupsController < ApplicationController
 
     if @device_group.save
       flash[:notice] = 'Group added!'
-      redirect_to account_device_groups_path(@device_group)
+      redirect_to account_device_groups_path
     else
       flash[:error] = 'Failed to create a group!'
       render :new

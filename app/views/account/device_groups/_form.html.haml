@@ -1,3 +1,6 @@
-= simple_form_for @device_group, url: account_device_groups_path do |f|
-  = f.input :name, input_html: { maxlength: 20 }
-  = f.button :submit, "Create"
+.col-md-5
+  = simple_form_for :device_group, url: account_device_groups_path, method: "GET" do |f|
+    .text-left.pt-4
+      = f.input :name, input_html: { maxlength: 20 }
+    .pt-2.text-center
+      = f.button :submit, "Create", type: "button", class: "button-create btn btn-success btn-lg"
