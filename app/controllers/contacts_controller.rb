@@ -8,8 +8,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     
-    if @contact.save
-      ContactsMailer.general_message(@contact).deliver_now
+    if @contact.save      
       redirect_to root_path, success: "Message was successfully delivered"
     else
       render :new
