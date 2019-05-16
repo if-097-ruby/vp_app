@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
   end
-
-  def pricing
+  
+  def about
   end
 end
