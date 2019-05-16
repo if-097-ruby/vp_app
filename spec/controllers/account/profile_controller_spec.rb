@@ -3,16 +3,12 @@ require 'rails_helper'
 RSpec.describe Account::ProfilesController, type: :controller do
   render_views
 
-  let!(:params) { { user: { first_name: 'hah', last_name: 'foo', email: 'asdf@sdfas.com', 
-    password: 'qwerty', password_confirmation: 'qwerty', organization_id: 1 } } }
-
   describe 'GET #show' do
     context 'with signed in user' do
       let!(:user) { create(:user) }
 
       before(:each) do
         sign_in user
-
         get :show
       end
 
@@ -24,12 +20,11 @@ RSpec.describe Account::ProfilesController, type: :controller do
   end
 
   describe 'GET #edit' do
-    context 'with signed in user' do
-      let!(:user) { create(:user) }
+    let!(:user) { create(:user) }
 
+    context 'with signed in user' do
       before(:each) do
         sign_in user
-
         get :edit
       end
 
@@ -37,6 +32,6 @@ RSpec.describe Account::ProfilesController, type: :controller do
 
       it { is_expected.to have_http_status(200) }
       it { is_expected.to render_template('edit') }
-    end
+     end
   end
 end
