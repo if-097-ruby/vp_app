@@ -1,7 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, only: :create
   before_action :configure_account_update_params, only: :update
-  after_action :send_signup_emails, on: :create
 
   # GET /resource/sign_up
   def new
@@ -50,12 +49,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
     super(resource)
-  end
-
-  def send_signup_emails
-      return if @user.new_record?
-      SignupMailer.with(user: @user).welcome_email.deliver_now 
-      SignupMailer.with(user: @user, organization: @organization).new_organization_created_email.deliver_now
   end
   
 end
