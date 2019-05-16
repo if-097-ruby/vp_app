@@ -33,7 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/cancel
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name,
-      own_organization_attributes: [:name]])
+      :terms_of_service, own_organization_attributes: [:name]])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
