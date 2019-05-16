@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Organization, type: :model do
   context 'validation tests' do
-    let!(:organization) { build(:organization) }
+    let!(:organization) { create(:organization) }
 
     describe 'factory' do
       it { is_expected.to be_truthy }
@@ -10,8 +10,6 @@ RSpec.describe Organization, type: :model do
 
     describe '#name' do
       it { is_expected.to validate_presence_of(:name) }
-      it { should_not allow_value("a").for(:name) }
-      it { should_not allow_value("a"*41).for(:name) }
     end
 
     describe 'association' do
