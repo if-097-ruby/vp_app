@@ -11,4 +11,5 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :own_organization
 
   validates :first_name, :last_name, presence: true, length: { in: 2..50 }
+  validates :terms_of_service, acceptance: true, on: :create
 end

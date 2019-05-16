@@ -16,10 +16,13 @@ class Account::DeviceGroupsController < ApplicationController
     @device_group = DeviceGroup.create(device_group_params)
 
     if @device_group.save
-      redirect_to account_device_groups_path
+      flash[:notice] = 'Group added!'
+      redirect_to account_device_groups_path(@device_group)
     else
+      flash[:error] = 'Failed to create a group!'
       render :new
     end
+
   end
 
   def edit
@@ -35,22 +38,21 @@ class Account::DeviceGroupsController < ApplicationController
   end
 
   def destroy
+    @device_group = resource
 
-    if @device_group.destroy
+    if @device_group.delete
+      flash[:notice] = 'Product deleted!'
       redirect_to account_device_groups_path
     else
-      redirect_to account_device_groups_path, error: "Device group wasn't deleted."
+      flash[:error] = 'Failed to delete this product!'
+      render :destroy
     end
-    @device_group = resource
-    @device_group.destroy
-
-    redirect_to account_device_groups_path
   end
 
   private
 
   def device_group_params
-    params.require(:device_groups).permit(:name)
+    params.require(:device_group).permit(:name)
   end
 
   def resource
