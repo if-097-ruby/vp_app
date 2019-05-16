@@ -16,6 +16,6 @@ class Contact < ActiveRecord::Base
   private
 
   def send_contact_emails
-    ContactsMailer.general_message(@contact).deliver_now 
+    ContactsMailer.with(contact: self).general_message.deliver_now 
   end  
 end

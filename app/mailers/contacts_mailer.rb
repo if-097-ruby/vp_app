@@ -3,8 +3,8 @@ class ContactsMailer < ActionMailer::Base
 
   layout "mailer"
   
-  def general_message(contact)
-    @contact = contact
+  def general_message
+    @contact = params[:contact]
     mail(to: "admin@example.com", subject: "You Have a Message From Your Website")
   end
 end
