@@ -38,7 +38,6 @@ class Account::DeviceGroupsController < Account::DashboardController
       redirect_to account_device_groups_path
     else
       flash[:error] = 'Failed to delete this group!'
-      render :destroy
     end
   end
 
@@ -49,7 +48,7 @@ class Account::DeviceGroupsController < Account::DashboardController
   end
 
   def resource_group
-    DeviceGroup.find(params[:id])
+    parent.device_groups.find(params[:id])
   end
 
   def collection
