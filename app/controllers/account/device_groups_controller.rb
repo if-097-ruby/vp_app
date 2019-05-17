@@ -33,11 +33,10 @@ class Account::DeviceGroupsController < ApplicationController
 
   def edit
     @device_group = resource_group
-    @device_group.update(device_group_params)
   end
 
   def update
-    @device_group.update(device_group_params)
+    @device_group = resource_group
     if @device_group.update(device_group_params)
       redirect_to account_device_groups_path
     else
