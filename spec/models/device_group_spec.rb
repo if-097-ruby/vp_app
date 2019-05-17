@@ -8,6 +8,10 @@ RSpec.describe DeviceGroup, type: :model do
       it { is_expected.to validate_presence_of(:name) }
     end
 
+    describe '#organization_id' do
+      it { is_expected.to validate_presence_of(:organization_id) }
+    end
+
     describe 'association' do
       it { should belong_to :organization }
       it { should have_many :devices }
