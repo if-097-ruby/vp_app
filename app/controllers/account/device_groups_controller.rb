@@ -1,8 +1,6 @@
-class Account::DeviceGroupsController < ApplicationController
-  layout "dashboard"
-
+class Account::DeviceGroupsController < Account::DashboardController
   def index
-    @device_group = DeviceGroup.all
+    @device_group = collection
   end
 
   def new
@@ -10,24 +8,12 @@ class Account::DeviceGroupsController < ApplicationController
   end
 
   def create
-    @organization = Organization.find_by owner_id: current_user.id
-    @device_group = DeviceGroup.new(device_group_params)
-    @device_group.organization_id = @organization[:id]
-    @device_group.save
-
+    @device_group = @organization.device_groups.build(device_group_params)
     if @device_group.save
       redirect_to account_device_groups_path
     else
       flash[:error] = 'Failed to create a group!'
       render :new
-    end
-  end
-
-  def show
-    if  @device_group = DeviceGroup.where(id: params[:id]).first
-      render :show
-    else
-      render text: "Page not found", status: 404
     end
   end
 
@@ -64,5 +50,13 @@ class Account::DeviceGroupsController < ApplicationController
 
   def resource_group
     DeviceGroup.find(params[:id])
+  end
+
+  def collection
+    DeviceGroup.all
+  end
+
+  def parent
+    @organization = Organization.find_by owner_id: current_user.id
   end
 end

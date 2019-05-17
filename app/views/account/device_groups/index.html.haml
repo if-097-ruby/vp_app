@@ -10,6 +10,6 @@
           %td
             = device_group.name
           %td.edit-block
-            = link_to "Edit", edit_account_device_group_path(device_group), method: :get
+            = link_to "Edit", edit_account_device_group_path(device_group)
           %td.delete-block
             = link_to "Delete", account_device_group_path(device_group), method: :delete, data: {confirm: "Are you sure?"}
