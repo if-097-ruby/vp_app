@@ -25,6 +25,9 @@
           = f.label :email, class: 'control-label'
           = f.email_field :email, class: 'form-control'
         .form-group
+          = f.label 'Profile photo'
+          = f.file_field :avatar
+        .form-group
           = f.submit "Save changes", class: "submit-button btn btn-large btn-primary"
       = form_for current_user, url: account_profile_path, html: { method: :put } do |f|
         .form-group
