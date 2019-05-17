@@ -8,7 +8,7 @@ class Account::DeviceGroupsController < Account::DashboardController
   end
 
   def create
-    @device_group = @organization.device_groups.build(device_group_params)
+    @device_group = parent.device_groups.build(device_group_params)
     if @device_group.save
       redirect_to account_device_groups_path
     else
@@ -57,6 +57,6 @@ class Account::DeviceGroupsController < Account::DashboardController
   end
 
   def parent
-    @organization = Organization.find_by owner_id: current_user.id
+    @organization = Organization.find_by(owner_id: current_user.id)
   end
 end
