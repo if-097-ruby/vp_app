@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_05_14_170207) do
     t.integer "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_device_groups_on_organization_id"
   end
 
   create_table "devices", force: :cascade do |t|
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_05_14_170207) do
     t.integer "device_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["device_group_id"], name: "index_devices_on_device_group_id"
   end
 
   create_table "organizations", force: :cascade do |t|
