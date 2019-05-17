@@ -57,6 +57,6 @@ class Account::DeviceGroupsController < Account::DashboardController
   end
 
   def parent
-    @organization = Organization.find_by(owner_id: current_user.id)
+    @organization = Organization.find_by(current_user.organization)
   end
 end
