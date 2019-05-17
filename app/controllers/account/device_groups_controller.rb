@@ -10,24 +10,25 @@ class Account::DeviceGroupsController < ApplicationController
   end
 
   def show
-    @device_group = resource
+    @device_group = resource_group
   end
 
   def create
-    @device_group = DeviceGroup.create(device_group_params)
+    @user = User.find_by id: current_user.id
+    @organization = Organization.find_by! id: @user.organization_id
+    @device_group = DeviceGroup.create(device_group_params).where(organization_id: @organization.id)
+    @device_group.save
 
     if @device_group.save
-      flash[:notice] = 'Group added!'
       redirect_to account_device_groups_path
     else
       flash[:error] = 'Failed to create a group!'
       render :new
     end
-
   end
 
   def edit
-    @device_group = resource
+    @device_group = resource_group
   end
 
   def update
@@ -39,13 +40,13 @@ class Account::DeviceGroupsController < ApplicationController
   end
 
   def destroy
-    @device_group = resource
+    @device_group = resource_group
 
     if @device_group.delete
-      flash[:notice] = 'Product deleted!'
+      flash[:notice] = 'Group deleted!'
       redirect_to account_device_groups_path
     else
-      flash[:error] = 'Failed to delete this product!'
+      flash[:error] = 'Failed to delete this group!'
       render :destroy
     end
   end
@@ -56,7 +57,7 @@ class Account::DeviceGroupsController < ApplicationController
     params.require(:device_group).permit(:name)
   end
 
-  def resource
+  def resource_group
     DeviceGroup.find(params[:id])
   end
 end
