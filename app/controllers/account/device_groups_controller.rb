@@ -9,10 +9,6 @@ class Account::DeviceGroupsController < ApplicationController
     @device_group = DeviceGroup.new
   end
 
-  def show
-    @device_group = resource_group
-  end
-
   def create
     @organization = Organization.find_by owner_id: current_user.id
     @device_group = DeviceGroup.new(device_group_params)

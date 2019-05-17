@@ -7,6 +7,27 @@
   font-family: RalewayMedium;
   color: black;
 
+  .table-container {
+    width: 50%;
+
+    .border-table-header {
+      border-bottom: 4px solid blue;
+      margin-bottom: 10px;
+    }
+
+    .edit-block, .delete-block {
+      text-align: end;
+
+      a:hover {
+        text-decoration: underline !important;
+      }
+    }
+
+    .edit-block {
+      padding-left: 50px;
+    }
+  }
+
   .button-create {
     border-radius: 7px;
     font-size: 18px;
