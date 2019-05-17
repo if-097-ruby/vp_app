@@ -33,8 +33,11 @@ RSpec.configure do |config|
 
   config.filter_rails_from_backtrace!
 
+  config.include Capybara::DSL
+
 end
 
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
+  
 end
