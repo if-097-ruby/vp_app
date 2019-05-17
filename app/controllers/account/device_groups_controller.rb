@@ -14,9 +14,9 @@ class Account::DeviceGroupsController < ApplicationController
   end
 
   def create
-    @user = User.find_by id: current_user.id
-    @organization = Organization.find_by! id: @user.organization_id
-    @device_group = DeviceGroup.create(device_group_params).where(organization_id: @organization.id)
+    @organization = Organization.find_by owner_id: current_user.id
+    @device_group = DeviceGroup.new(device_group_params)
+    @device_group.organization_id = @organization[:id]
     @device_group.save
 
     if @device_group.save
