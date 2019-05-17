@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_10_134426) do
+
+ActiveRecord::Schema.define(version: 2019_05_14_170207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +35,13 @@ ActiveRecord::Schema.define(version: 2019_05_10_134426) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "device_groups", force: :cascade do |t|
@@ -41,6 +49,16 @@ ActiveRecord::Schema.define(version: 2019_05_10_134426) do
     t.integer "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_device_groups_on_organization_id"
+  end
+
+  create_table "devices", force: :cascade do |t|
+    t.string "name"
+    t.string "device_type"
+    t.integer "device_group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["device_group_id"], name: "index_devices_on_device_group_id"
   end
 
   create_table "devices", force: :cascade do |t|
