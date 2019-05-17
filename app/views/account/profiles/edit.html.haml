@@ -7,9 +7,9 @@
       .text-center
         .profile-avatar
           - if current_user.avatar.attached?
-            %img{ src: "#{url_for(current_user.avatar)}"}
+            %img{ src: "#{url_for(current_user.avatar)}" }
           - else
-            %img{ src: "https://cdn1.iconfinder.com/data/icons/rcons-user-action/512/user-512.png"}
+            %img{ src: "https://cdn1.iconfinder.com/data/icons/rcons-user-action/512/user-512.png" }
         %h3
           %strong.user_name
             #{current_user.first_name + " " + current_user.last_name}

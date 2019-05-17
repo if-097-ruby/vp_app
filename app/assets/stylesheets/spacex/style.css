@@ -125,7 +125,6 @@ img.mini-user-icon {
   border-radius: 100%;
 }
 
-
 input,
 button,
 a {
@@ -4796,9 +4795,5 @@ textarea.form-control {
 }
 .sweet-alert.visible .sa-icon.sa-error .sa-line {
 	background: #f60e0e;
-}
-
-.profile-gravatar {
-	width: 300px; 
 }
 /*---------------------------------------------------------------------*/

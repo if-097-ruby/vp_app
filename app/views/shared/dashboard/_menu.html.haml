@@ -8,9 +8,9 @@
     / /.header
     .content
       .navigation
-        %a{ href: "#{account_profile_path}"}
+        %a{ href: "#{account_profile_path}" }
           - if current_user.avatar.attached?
-            %img.mini-avatar{ src: "#{url_for(current_user.avatar)}"}
+            %img.mini-avatar{ src: "#{url_for(current_user.avatar)}" }
           - else
             %img.mini-user-icon{ src: "https://cdn1.iconfinder.com/data/icons/rcons-user-action/512/user-512.png"}
         Hello, #{current_user.first_name}!      
@@ -18,11 +18,11 @@
         / /.title
         %ul.menu.js__accordion
           %li
-            %a.waves-effect{ href: "#{account_root_path}"}
+            %a.waves-effect{ href: "#{account_root_path}" }
               %i.menu-icon.ti-dashboard
               %span Dashboard
           %li
-            %a.waves-effect{ href: "#{account_profile_path}"}
+            %a.waves-effect{ href: "#{account_profile_path}" }
               %i.menu-icon.ti-user
               %span Profile
 
