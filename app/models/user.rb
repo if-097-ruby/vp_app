@@ -12,4 +12,13 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true, length: { in: 2..50 }
   validates :terms_of_service, acceptance: true, on: :create
+  after_create :send_signup_emails
+
+  private
+
+  def send_signup_emails
+      SignupMailer.with(user: self).welcome_email.deliver_now 
+      SignupMailer.with(user: self).new_organization_created_email.deliver_now
+  end
+
 end
