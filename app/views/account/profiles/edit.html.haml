@@ -3,7 +3,6 @@
   %h1 Edit Profile
   %hr/
   .row
-    / left column
     .col-md-3
       .text-center
         .profile-avatar
@@ -14,7 +13,6 @@
         %h3
           %strong.user_name
             #{current_user.first_name + " " + current_user.last_name}
-        / edit form column
     .col-md-9.personal-info
       = form_for current_user, url: account_profile_path, html: { method: :put } do |f|
         .form-group

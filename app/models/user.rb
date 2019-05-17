@@ -14,4 +14,8 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true, length: { in: 2..50 }
   validates :terms_of_service, acceptance: true, on: :create
+
+  def full_name
+    first_name + ' ' + last_name
+  end
 end

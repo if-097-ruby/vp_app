@@ -1,9 +1,8 @@
 class Account::ProfilesController < ApplicationController
   layout "dashboard"
 
-
   def show
-  	@user = resource
+    @user = resource
   end
 
   def edit
