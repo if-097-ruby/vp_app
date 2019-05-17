@@ -34,4 +34,20 @@ RSpec.describe Account::ProfilesController, type: :controller do
       it { is_expected.to render_template('edit') }
      end
   end
+
+  describe 'PUT #update' do
+  before(:each) do
+  @user = create(:user)
+  sign_in(@user)
+  end
+
+  context 'with valid attributes' do
+    it 'should update the promo and redirect to the index' do
+      process :update, method: :put, params: { id: @user.id, user: attributes_for(:user, first_name: 'Updated Name') }
+      @user.reload
+      expect(assigns(@user.first_name)) == 'Updated Name'
+      expect(response).to redirect_to(account_profile_path)
+    end
+  end
+end
 end
