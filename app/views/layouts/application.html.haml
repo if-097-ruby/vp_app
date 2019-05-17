@@ -10,6 +10,7 @@
   %body
     = render 'shared/header'
     %main{:class => "content animated container"}
-      = render 'shared/flash'
+      .flash-message
+        = render 'shared/flash'
       = yield
     = render 'shared/footer'
