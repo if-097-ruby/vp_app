@@ -13,7 +13,6 @@ class Account::ProfilesController < ApplicationController
       sign_in(current_user, :bypass => true)
       redirect_to account_profile_path
     else
-      flash[:error] = "<ul>" + current_user.errors.full_messages.map{|o| "<li>" + o + "</li>" }.join("") + "</ul>"
       render 'edit'
     end
   end
