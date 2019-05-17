@@ -23,11 +23,21 @@ class Account::DeviceGroupsController < ApplicationController
     end
   end
 
+  def show
+    if  @device_group = DeviceGroup.where(id: params[:id]).first
+      render :show
+    else
+      render text: "Page not found", status: 404
+    end
+  end
+
   def edit
     @device_group = resource_group
+    @device_group.update(device_group_params)
   end
 
   def update
+    @device_group.update(device_group_params)
     if @device_group.update(device_group_params)
       redirect_to account_device_groups_path
     else
