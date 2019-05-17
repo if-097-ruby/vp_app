@@ -8,11 +8,13 @@ class Account::ProfilesController < ApplicationController
   end
 
   def update
+    @user = current_user
     if current_user.update_attributes(user_params)
       sign_in(current_user, :bypass => true)
       redirect_to account_profile_path
     else
-      redirect_to edit_account_profile_path
+      flash[:error] = "<ul>" + current_user.errors.full_messages.map{|o| "<li>" + o + "</li>" }.join("") + "</ul>"
+      render 'edit'
     end
   end
 
