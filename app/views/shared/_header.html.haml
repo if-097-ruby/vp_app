@@ -10,7 +10,7 @@
       %li
         = link_to "About", about_path, class: "nav-link"
       %li
-        = link_to "Contact Us", "#", class: "nav-link"
+        = link_to "Contact Us", new_contact_path, class: "nav-link"
   .header-join
     - if user_signed_in?
       = link_to "Log Out", "#", class: "header-join-log-in"
