@@ -6,12 +6,12 @@ RSpec.describe Users::RegistrationsController, type: :controller do
   describe "Create action" do
     context "after user signed up" do
     
-    let!(:params) { { user: { first_name: "User", last_name: "Surname", email: "asd@asd.com", password: "password",
+    let!(:params) { { user: { first_name: "Simple", last_name: "User", email: "simple@user.com", password: "password",
                                       password_confirmation: "password", role: "member", terms_of_service: "1",
                                      own_organization_attributes: {name: "12321"}} }}
-    let!(:user) { create(:user, role: "super_admin", terms_of_service: "1")}
-
-    #let!(:organization) {create(:organization, name: "12321", owner_id: "")}
+    let!(:super_admin) { create(:user, first_name: "Super", last_name: "Admin", email: "super@admin.com", password: "password",
+                                      password_confirmation: "password", role: "super_admin", terms_of_service: "1",
+                                     own_organization_attributes: {name: "super_organization"}) }
     
     it "sends an email to super_admin and to signed up user" do
       request.env["devise.mapping"] = Devise.mappings[:user]
