@@ -14,7 +14,7 @@ RSpec.describe Users::RegistrationsController, type: :controller do
     #                                  own_organization_attributes: {name: "super_organization"}) }
  
     let!(:super_admin){ build(:super_admin) }
-    let!(:user){ build(:user) }
+    let!(:admin){ build(:admin) }
   
     it "sends an email to super_admin and to signed up user" do
       request.env["devise.mapping"] = Devise.mappings[:user]     
