@@ -9,7 +9,6 @@ FactoryBot.define do
      
     trait :super_admin do
       role { "super_admin" }
-      end
     end
 
     trait :admin do
