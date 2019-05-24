@@ -11,7 +11,7 @@
  *= require spacex/percircle.css
  *= require spacex/style.css
  *= require spacex/style.min.css
- *= require spacex/device_groups.scss
- *= require fonts.scss
- *= require spacex/custom_styles.scss
+ *= require spacex/device_groups
+ *= require fonts
+ *= require spacex/custom_styles
  */

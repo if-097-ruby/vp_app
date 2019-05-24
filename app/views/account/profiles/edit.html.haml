@@ -22,8 +22,7 @@
         .form-group
           = f.input :email, class: 'form-control'
         .form-group
-          = f.label 'Profile photo'
-          = f.file_field :avatar
+          = f.input :avatar, label: 'Profile photo'
         .form-group
           = f.submit "Save changes", class: "submit-button btn btn-large btn-primary"
       = simple_form_for current_user, url: account_profile_path, html: { method: :put } do |f|

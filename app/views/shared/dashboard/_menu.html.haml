@@ -1,14 +1,14 @@
 %body
   .main-menu
     %header.header
-      %a.logo{:href => "index.html"}
+      %a.logo{:href => root_path}
         %i.ico.ti-rocket>
         SpaceX
       %button.button-close.fa.fa-times.js__menu_close{:type => "button"}
     / /.header
     .content
       .navigation
-        = link_to "/account/profile" do
+        = link_to account_profile_path do
           - if current_user.avatar.attached?
             %img.mini-avatar{ src: "#{url_for(current_user.avatar)}" }
           - else
@@ -18,10 +18,10 @@
         / /.title
         %ul.menu.js__accordion
           %li
-            = link_to "/account" do
+            = link_to account_root_path do
               %i.menu-icon.ti-dashboard
               %span Dashboard
           %li
-            = link_to "/account/profile" do
+            = link_to account_profile_path do
               %i.menu-icon.ti-user
               %span Profile
