@@ -16,6 +16,6 @@ class User < ApplicationRecord
   validates :terms_of_service, acceptance: true, on: :create
 
   def full_name
-    first_name + ' ' + last_name
+    "#{first_name}" + ' ' + "#{last_name}"
   end
 end
