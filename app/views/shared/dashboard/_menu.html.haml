@@ -1,20 +1,27 @@
 %body
   .main-menu
     %header.header
-      %a.logo{:href => "index.html"}
+      = link_to root_path, class: "logo" do
         %i.ico.ti-rocket>
         SpaceX
-      %button.button-close.fa.fa-times.js__menu_close{:type => "button"}
+      %button.button-close.fa.fa-times.js__menu_close{type: "button"}
     / /.header
     .content
       .navigation
+        = link_to account_profile_path do
+          - if current_user.avatar.attached?
+            %img.mini-avatar{ src: "#{url_for(current_user.avatar)}" }
+          - else
+            %img.mini-user-icon{ src: "https://cdn1.iconfinder.com/data/icons/rcons-user-action/512/user-512.png"}
+        Hello, #{current_user.first_name}!      
         %h5.title Navigation
         / /.title
         %ul.menu.js__accordion
-          %li.current
-            %a.waves-effect{:href => "index.html"}
+          %li
+            = link_to account_root_path do
               %i.menu-icon.ti-dashboard
               %span Dashboard
-      / /.navigation
-    / /.content
-  / /.main-menu
+          %li
+            = link_to account_profile_path do
+              %i.menu-icon.ti-user
+              %span Profile
