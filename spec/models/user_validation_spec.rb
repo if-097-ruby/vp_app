@@ -1,17 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+   
+  context 'super_admin is no exist' do
+    let!(:user) { build(:user)}
+
+    it 'send one email to user after creation' do 
+      expect{user.save}.to change{ActionMailer::Base.deliveries.count}.by(1)
+    end
+  end  
+
+  context 'super_admin exists' do
+    let!(:user) { build(:super_admin) }
+
+    it 'send email to user and super_admin after creation' do 
+      expect{user.save}.to change{ActionMailer::Base.deliveries.count}.by(2)
+    end
+  end  
+
   context 'validation tests' do
     let!(:user) { create(:user) }
 
     describe 'factory' do
       it { is_expected.to be_truthy }
     end
-
     describe '#first_name' do
       it { is_expected.to validate_presence_of(:first_name) }
     end
-
     describe '#last_name' do
       it { is_expected.to validate_presence_of(:last_name) }
     end
