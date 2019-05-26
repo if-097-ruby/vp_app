@@ -23,15 +23,18 @@ RSpec.describe SignupMailer, type: :mailer do
   end
 
   describe 'new_organization_created_email' do
-    let!(:user) { create(:super_admin) }
-    let!(:mail) { SignupMailer.new_organization_created_email(user) }
+    let!(:user) { create(:user) }
+    let!(:super_admin) { create(:super_admin) }
+    
+
+    let!(:mail) { SignupMailer.new_organization_created_email(user, super_admin) }
 
     it 'renders the subject' do
       expect(mail.subject).to eql('New organization created')
     end
 
     it 'renders the receiver email' do
-      expect(mail.to).to eql([user.email])
+      expect(mail.to).to eql([super_admin.email])
     end
 
     it 'renders the sender email' do
