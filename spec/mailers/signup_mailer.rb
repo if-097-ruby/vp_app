@@ -25,8 +25,6 @@ RSpec.describe SignupMailer, type: :mailer do
   describe 'new_organization_created_email' do
     let!(:user) { create(:user) }
     let!(:super_admin) { create(:super_admin) }
-    
-
     let!(:mail) { SignupMailer.new_organization_created_email(user, super_admin) }
 
     it 'renders the subject' do
