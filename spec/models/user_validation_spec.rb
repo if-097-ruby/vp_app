@@ -2,17 +2,19 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
    
-  context 'super_admin is no exist' do
+  context 'super_admin does not exist' do
     let!(:user) { build(:user) }
-    it 'send one email to user after creation' do 
-      expect{user.save}.to change{ActionMailer::Base.deliveries.count}.by(1)
+    
+    it 'sends one email to user after creation' do 
+    expect{user.save}.to change{ActionMailer::Base.deliveries.count}.by(1)
     end
   end  
 
   context 'super_admin exists' do
     let!(:user) { build(:super_admin) }
-    it 'send email to user and super_admin after creation' do
-      expect{user.save}.to change{ActionMailer::Base.deliveries.count}.by(2)
+
+    it 'sends emails to user and super_admin after creation' do
+    expect{user.save}.to change{ActionMailer::Base.deliveries.count}.by(2)
     end
   end  
 

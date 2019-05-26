@@ -1,9 +1,9 @@
 require "rails_helper"
 
-RSpec.describe SignupMailer, :type => :mailer do
+RSpec.describe SignupMailer, type: :mailer do
   describe 'welcome_email' do
-    let(:user) { create(:user) }
-    let(:mail) { SignupMailer.welcome_email(user) }
+    let!(:user) { create(:user) }
+    let!(:mail) { SignupMailer.welcome_email(user) }
 
     it 'renders the subject' do
       expect(mail.subject).to eql('Welcome to My Awesome Site')
@@ -23,8 +23,8 @@ RSpec.describe SignupMailer, :type => :mailer do
   end
 
   describe 'new_organization_created_email' do
-    let(:user) { create(:super_admin) }
-    let(:mail) { SignupMailer.new_organization_created_email(user) }
+    let!(:user) { create(:super_admin) }
+    let!(:mail) { SignupMailer.new_organization_created_email(user) }
 
     it 'renders the subject' do
       expect(mail.subject).to eql('New organization created')

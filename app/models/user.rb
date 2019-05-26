@@ -20,8 +20,8 @@ class User < ApplicationRecord
   private
 
   def send_signup_emails  
-      SignupMailer.welcome_email(self).deliver_now 
-      SignupMailer.new_organization_created_email(self).deliver_now if User.exists?(role: 'super_admin')
+    SignupMailer.welcome_email(self).deliver_now 
+    SignupMailer.new_organization_created_email(self).deliver_now if User.exists?(role: 'super_admin')
   end
 
   def full_name
