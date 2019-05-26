@@ -15,7 +15,20 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true, length: { in: 2..50 }
   validates :terms_of_service, acceptance: true, on: :create
 
+  after_create :send_signup_emails
+
+  private
+
+  def send_signup_emails  
+    SignupMailer.welcome_email(self).deliver_now 
+    super_admin = User.find_by(role: 'super_admin')
+    if super_admin.present?
+      SignupMailer.new_organization_created_email(self, super_admin).deliver_now
+    end
+  end
+
   def full_name
     "#{first_name}" + ' ' + "#{last_name}"
   end
+  
 end
