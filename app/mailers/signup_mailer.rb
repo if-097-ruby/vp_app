@@ -9,7 +9,7 @@ class SignupMailer < ApplicationMailer
   def new_organization_created_email
     @user = params[:user]
     @super_admin = User.find_by(role: "super_admin")
-    @organization = Organization.find_by(owner_id: @user.id)
+    @organization = @user.own_organization
     mail(to: @super_admin.email, subject: "New organization created")
   end
 end

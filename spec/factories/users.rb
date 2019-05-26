@@ -6,9 +6,12 @@ FactoryBot.define do
     password { Faker::Internet.password }
     organization
     
-    factory :super_admin do
-      role { 'super_admin' }
-    end   
-      
+    association :own_organization, factory: :organization
+
+    trait :super_admin do
+      role { "super_admin" }    
+    end
+
+    factory :super_admin, traits: [:super_admin]
   end
 end

@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(version: 2019_05_14_170207) do
     t.index ["organization_id"], name: "index_device_groups_on_organization_id"
   end
 
+  create_table "devices", force: :cascade do |t|
+    t.string "name"
+    t.string "device_type"
+    t.integer "device_group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["device_group_id"], name: "index_devices_on_device_group_id"
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -65,7 +74,8 @@ ActiveRecord::Schema.define(version: 2019_05_14_170207) do
     t.string "last_name"
     t.string "email"
     t.string "password"
-    t.integer "role", default: 0
+    t.string "password_confirmation"
+    t.integer "role"
     t.integer "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,7 +84,6 @@ ActiveRecord::Schema.define(version: 2019_05_14_170207) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["organization_id"], name: "index_users_on_organization_id", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
