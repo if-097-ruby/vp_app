@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
     let!(:user) { build(:user) }
     
     it 'sends one email to user after creation' do 
-    expect{user.save}.to change{ActionMailer::Base.deliveries.count}.by(1)
+      expect{user.save}.to change{ActionMailer::Base.deliveries.count}.by(1)
     end
   end  
 
@@ -14,7 +14,7 @@ RSpec.describe User, type: :model do
     let!(:user) { build(:super_admin) }
 
     it 'sends emails to user and super_admin after creation' do
-    expect{user.save}.to change{ActionMailer::Base.deliveries.count}.by(2)
+      expect{user.save}.to change{ActionMailer::Base.deliveries.count}.by(2)
     end
   end  
 
