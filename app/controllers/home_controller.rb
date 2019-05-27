@@ -1,10 +1,7 @@
 class HomeController < ApplicationController
-  def index
-  end
-  
-  def about
-  end
+  def index; end
 
-  def pricing
-  end
+  def about; end
+
+  def pricing; end
 end

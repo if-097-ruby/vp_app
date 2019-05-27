@@ -2,14 +2,14 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one_attached :avatar
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum role: [:member, :admin, :super_admin]
+  enum role: %i[member admin super_admin]
 
   belongs_to :organization, optional: true
-  has_one :own_organization, class_name: 'Organization', foreign_key: "owner_id"
+  has_one :own_organization, class_name: 'Organization', foreign_key: 'owner_id'
   accepts_nested_attributes_for :own_organization
 
   validates :first_name, :last_name, presence: true, length: { in: 2..50 }
@@ -19,16 +19,13 @@ class User < ApplicationRecord
 
   private
 
-  def send_signup_emails  
-    SignupMailer.welcome_email(self).deliver_now 
+  def send_signup_emails
+    SignupMailer.welcome_email(self).deliver_now
     super_admin = User.find_by(role: 'super_admin')
-    if super_admin.present?
-      SignupMailer.new_organization_created_email(self, super_admin).deliver_now
-    end
+    SignupMailer.new_organization_created_email(self, super_admin).deliver_now if super_admin.present?
   end
 
   def full_name
-    "#{first_name}" + ' ' + "#{last_name}"
+    first_name.to_s + ' ' + last_name.to_s
   end
-  
 end

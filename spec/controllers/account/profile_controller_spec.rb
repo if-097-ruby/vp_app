@@ -32,11 +32,10 @@ RSpec.describe Account::ProfilesController, type: :controller do
 
       it { is_expected.to have_http_status(200) }
       it { is_expected.to render_template('edit') }
-     end
+    end
   end
 
   describe 'PUT #update' do
-    
     before(:each) do
       @user = create(:user)
       sign_in(@user)

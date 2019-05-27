@@ -1,5 +1,5 @@
 class Account::UsersController < ApplicationController
-  layout "dashboard"
+  layout 'dashboard'
 
   def index
     @users = collection
@@ -28,7 +28,7 @@ class Account::UsersController < ApplicationController
 
   def update
     @user = resource
-    if @user.update_attributes(user_params)
+    if @user.update(user_params)
       redirect_to account_user_path(user: @user)
     else
       render :edit
@@ -42,7 +42,7 @@ class Account::UsersController < ApplicationController
     redirect_to account_users_path
   end
 
-private
+  private
 
   def collection
     User.all
@@ -54,7 +54,6 @@ private
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password,
-    	                           :password_confirmation, :role, :organization_id, :avatar)
+                                 :password_confirmation, :role, :organization_id, :avatar)
   end
-
 end

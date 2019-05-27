@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe SignupMailer, type: :mailer do
   describe 'welcome_email' do
@@ -37,7 +37,7 @@ RSpec.describe SignupMailer, type: :mailer do
 
     it 'renders the sender email' do
       expect(mail.from).to eql(['spacex@rails.com'])
-    end   
+    end
 
     it 'assigns @name' do
       expect(mail.body.encoded).to match(user.first_name)
@@ -45,6 +45,6 @@ RSpec.describe SignupMailer, type: :mailer do
 
     it 'assigns @organization_name' do
       expect(mail.body.encoded).to match(user.own_organization.name)
-    end    
+    end
   end
 end

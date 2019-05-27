@@ -10,6 +10,6 @@ class SignupMailer < ApplicationMailer
     @user = user
     @super_admin = super_admin
     @organization = user.own_organization
-    mail(to: @super_admin.email, subject: "New organization created")
+    mail(to: @super_admin.email, subject: 'New organization created')
   end
 end
