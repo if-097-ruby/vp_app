@@ -1,6 +1,6 @@
 class Account::DeviceGroupsController < Account::DashboardController
   def index
-    @device_group = collection
+    @device_groups = collection
   end
 
   def new
@@ -10,6 +10,7 @@ class Account::DeviceGroupsController < Account::DashboardController
   def create
     @device_group = parent.device_groups.build(device_group_params)
     if @device_group.save
+      flash[:notice] = 'Group saved!'
       redirect_to account_device_groups_path
     else
       flash[:error] = 'Failed to create a group!'
@@ -24,8 +25,10 @@ class Account::DeviceGroupsController < Account::DashboardController
   def update
     @device_group = resource_group
     if @device_group.update(device_group_params)
+      flash[:notice] = 'Group updated!'
       redirect_to account_device_groups_path
     else
+      flash[:error] = 'Failed to update group!'
       render :edit
     end
   end
@@ -43,19 +46,19 @@ class Account::DeviceGroupsController < Account::DashboardController
 
   private
 
+  def parent
+    current_user.own_organization
+  end
+
+  def collection
+    parent.device_groups.all
+  end
+  
   def device_group_params
     params.require(:device_group).permit(:name)
   end
 
   def resource_group
     parent.device_groups.find(params[:id])
-  end
-
-  def collection
-    DeviceGroup.all
-  end
-
-  def parent
-    @organization = Organization.find_by(current_user.organization)
   end
 end

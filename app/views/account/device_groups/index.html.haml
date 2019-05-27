@@ -5,7 +5,7 @@
       %tr
         %th Name
     %tbody
-      - @device_group.each do |device_group|
+      - @device_groups.each do |device_group|
         %tr
           %td
             = device_group.name
@@ -13,3 +13,5 @@
             = link_to "Edit", edit_account_device_group_path(device_group)
           %td.delete-block
             = link_to "Delete", account_device_group_path(device_group), method: :delete, data: {confirm: "Are you sure?"}
+  .pt-3.text-center
+    = link_to 'Create', new_account_device_group_path, class: "button-submit btn btn-success btn-lg" 

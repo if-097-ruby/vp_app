@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe DeviceGroup, type: :model do
-  context 'validation tests' do
+  context 'validations tests' do
     let!(:device_group) { build(:device_group) }
 
     describe '#name' do
