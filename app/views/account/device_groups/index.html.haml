@@ -1,0 +1,15 @@
+.container-group-form
+  %h1 Device groups
+  %table.table-container
+    %thead.border-table-header
+      %tr
+        %th Name
+    %tbody
+      - @device_group.each do |device_group|
+        %tr
+          %td
+            = device_group.name
+          %td.edit-block
+            = link_to "Edit", edit_account_device_group_path(device_group)
+          %td.delete-block
+            = link_to "Delete", account_device_group_path(device_group), method: :delete, data: {confirm: "Are you sure?"}
