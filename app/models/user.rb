@@ -9,7 +9,9 @@ class User < ApplicationRecord
   enum role: %i[member admin super_admin]
 
   belongs_to :organization, optional: true
-  has_one :own_organization, class_name: 'Organization', foreign_key: 'owner_id'
+  with_options inverse_of: :user do
+    has_one :own_organization, class_name: 'Organization', foreign_key: 'owner_id', dependent: :destroy
+  end
   accepts_nested_attributes_for :own_organization
 
   validates :first_name, :last_name, presence: true, length: { in: 2..50 }
