@@ -18,7 +18,7 @@ class User < ApplicationRecord
   after_create :send_signup_emails
 
   def full_name
-    first_name.to_s + ' ' + last_name.to_s
+    [first_name, last_name].reject(&:blank?).join(" ")
   end
 
   private

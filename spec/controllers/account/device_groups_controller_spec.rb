@@ -36,13 +36,12 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
   end
 
   describe 'GET #edit' do
-    let!(:user) { create(:user) }
+    let!(:user) { create(:user, own_organization: organization) }
     let!(:organization) { create(:organization_with_device_group) }
 
     context 'with signed in user' do
       before(:each) do
         sign_in user
-        user.own_organization = organization
         get :edit, params: { id: user.own_organization.device_groups.first.id }
       end
 
@@ -54,24 +53,24 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
   end
 
   describe '#create' do
+    let!(:user) { create(:user) }
+    let!(:device_group) { create(:device_group) }
+
     context 'as an authenticated user' do
       before do
-        @user = FactoryBot.create(:user)
-        @device_group = FactoryBot.create(:device_group)
+        @device_group_params = FactoryBot.attributes_for(:device_group)
       end
 
       it 'create device_group' do
-        device_group_params = FactoryBot.attributes_for(:device_group)
-        sign_in @user
+        sign_in user
         expect do
-          post :create, params: { device_group: device_group_params }
-        end.to change(@user.own_organization.device_groups, :count).by(1)
+          post :create, params: { device_group: @device_group_params }
+        end.to change(user.own_organization.device_groups, :count).by(1)
       end
 
       it 'it should redirect after save' do
-        device_group_params = FactoryBot.attributes_for(:device_group)
-        sign_in @user
-        post :create, params: { device_group: device_group_params }
+        sign_in user
+        post :create, params: { device_group: @device_group_params }
         expect(flash[:notice]).to eq 'Group saved!'
         expect(response).to redirect_to(account_device_groups_path)
       end
@@ -79,32 +78,29 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
   end
 
   describe '#update' do
-    context 'as an authenticated user' do
-      before do
-        @user = FactoryBot.create(:user)
-        @user.own_organization = FactoryBot.create(:organization_with_device_group)
-      end
+    let!(:user) { create(:user, own_organization: organization) }
+    let!(:organization) { create(:organization_with_device_group) }
 
+    context 'as an authenticated user' do
       it 'update device_group' do
         new_device_group_params = FactoryBot.attributes_for(:device_group)
         new_device_group_params[:name] = 'Updated'
-        sign_in @user
-        put :update, params: { id: @user.own_organization.device_groups.first.id, device_group: new_device_group_params }
-        @user.own_organization.device_groups.first.reload
-        expect(@user.own_organization.device_groups.first.name).to eq 'Updated'
+        sign_in user
+        put :update, params: { id: user.own_organization.device_groups.first.id, device_group: new_device_group_params }
+        user.own_organization.device_groups.first.reload
+        expect(user.own_organization.device_groups.first.name).to eq 'Updated'
         expect(response).to redirect_to(account_device_groups_path)
       end
     end
   end
 
   describe '#delete' do
-    let!(:user) { create(:user) }
+    let!(:user) { create(:user, own_organization: organization) }
     let!(:organization) { create(:organization_with_device_group) }
 
     context 'with signed in user' do
       before(:each) do
         sign_in user
-        user.own_organization = organization
       end
 
       it 'create device_group' do

@@ -10,37 +10,38 @@ class Account::DeviceGroupsController < Account::DashboardController
   def create
     @device_group = parent.device_groups.build(device_group_params)
     if @device_group.save
-      flash[:notice] = 'Group saved!'
+      flash.now[:notice] = 'Group saved!'
       redirect_to account_device_groups_path
     else
-      flash[:error] = 'Failed to create a group!'
+      flash.now[:error] = 'Failed to create a group!'
       render :new
     end
   end
 
   def edit
-    @device_group = resource_group
+    @device_group = resource
   end
 
   def update
-    @device_group = resource_group
+    @device_group = resource
     if @device_group.update(device_group_params)
-      flash[:notice] = 'Group updated!'
+      flash.now[:notice] = 'Group updated!'
       redirect_to account_device_groups_path
     else
-      flash[:error] = 'Failed to update group!'
+      flash.now[:error] = 'Failed to update group!'
       render :edit
     end
   end
 
   def destroy
-    @device_group = resource_group
+    @device_group = resource
 
     if @device_group.delete
-      flash[:notice] = 'Group deleted!'
+      flash.now[:notice] = 'Group deleted!'
       redirect_to account_device_groups_path
     else
-      flash[:error] = 'Failed to delete this group!'
+      flash.now[:error] = 'Failed to delete this group!'
+      redirect_to account_device_groups_path
     end
   end
 
@@ -51,14 +52,14 @@ class Account::DeviceGroupsController < Account::DashboardController
   end
 
   def collection
-    parent.device_groups.all
+    parent.device_groups
   end
 
   def device_group_params
     params.require(:device_group).permit(:name)
   end
 
-  def resource_group
+  def resource
     parent.device_groups.find(params[:id])
   end
 end

@@ -9,7 +9,7 @@ RSpec.describe DeviceGroup, type: :model do
     end
 
     describe '#organization_id' do
-      it { should validate_presence_of(:organization_id) }
+      it { should validate_presence_of(:organization) }
     end
 
     describe 'association' do
