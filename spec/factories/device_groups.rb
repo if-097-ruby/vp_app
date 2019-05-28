@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :device_group do
-    name { Faker::Name.name }
+    name { Faker::Company.suffix }
     organization
-    
   end
 end
