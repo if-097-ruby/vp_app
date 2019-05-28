@@ -53,7 +53,7 @@ class Account::DeviceGroupsController < Account::DashboardController
   def collection
     parent.device_groups.all
   end
-  
+
   def device_group_params
     params.require(:device_group).permit(:name)
   end

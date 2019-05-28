@@ -1,8 +1,6 @@
 class Account::DashboardController < ApplicationController
   before_action :authenticate_user!
-  layout "dashboard"
+  layout 'dashboard'
 
-  def index
-  end
-
+  def index; end
 end

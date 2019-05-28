@@ -1,22 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-   
   context 'super_admin does not exist' do
     let!(:user) { build(:user) }
-    
-    it 'sends one email to user after creation' do 
-      expect{user.save}.to change{ActionMailer::Base.deliveries.count}.by(1)
+
+    it 'sends one email to user after creation' do
+      expect { user.save }.to change { ActionMailer::Base.deliveries.count }.by(1)
     end
-  end  
+  end
 
   context 'super_admin exists' do
     let!(:user) { build(:super_admin) }
 
     it 'sends emails to user and super_admin after creation' do
-      expect{user.save}.to change{ActionMailer::Base.deliveries.count}.by(2)
+      expect { user.save }.to change { ActionMailer::Base.deliveries.count }.by(2)
     end
-  end  
+  end
 
   context 'validation tests' do
     let!(:user) { create(:user) }
@@ -24,11 +23,11 @@ RSpec.describe User, type: :model do
     describe 'factory' do
       it { is_expected.to be_truthy }
     end
-    
+
     describe 'belong_to organization' do
       it { is_expected.to belong_to(:organization) }
-    end  
-     
+    end
+
     describe 'nested attribute' do
       it { is_expected.to accept_nested_attributes_for(:own_organization) }
     end
@@ -41,8 +40,8 @@ RSpec.describe User, type: :model do
     end
 
     describe '#email' do
-      it { is_expected.not_to allow_value("blah").for(:email) }
-      it { is_expected.to allow_value("a@b.com").for(:email) }
+      it { is_expected.not_to allow_value('blah').for(:email) }
+      it { is_expected.to allow_value('a@b.com').for(:email) }
     end
 
     describe '#role' do

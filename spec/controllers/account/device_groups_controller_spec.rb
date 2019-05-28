@@ -17,7 +17,7 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
       it { is_expected.to have_http_status(200) }
       it { is_expected.to render_template('index') }
     end
-  end  
+  end
 
   describe 'GET #new' do
     let!(:user) { create(:user) }
@@ -32,7 +32,7 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
 
       it { is_expected.to have_http_status(200) }
       it { is_expected.to render_template('new') }
-     end
+    end
   end
 
   describe "#create" do
@@ -61,3 +61,4 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
   end          		
 
 end
+

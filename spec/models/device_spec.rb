@@ -1,8 +1,8 @@
 require 'rails_helper'
 
- RSpec.describe Device, type: :model do
-   context 'validation tests' do
-     let!(:device) { create(:device) }
+RSpec.describe Device, type: :model do
+  context 'validation tests' do
+    let!(:device) { create(:device) }
 
     describe 'factory' do
       it { is_expected.to be_truthy }
