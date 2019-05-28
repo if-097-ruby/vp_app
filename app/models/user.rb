@@ -17,6 +17,10 @@ class User < ApplicationRecord
 
   after_create :send_signup_emails
 
+  def full_name
+    "#{first_name}" + ' ' + "#{last_name}"
+  end
+
   private
 
   def send_signup_emails  
@@ -25,10 +29,5 @@ class User < ApplicationRecord
     if super_admin.present?
       SignupMailer.new_organization_created_email(self, super_admin).deliver_now
     end
-  end
-
-  def full_name
-    "#{first_name}" + ' ' + "#{last_name}"
-  end
-  
+  end  
 end
