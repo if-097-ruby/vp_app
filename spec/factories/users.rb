@@ -5,11 +5,11 @@ FactoryBot.define do
     email { Faker::Internet.unique.email }
     password { Faker::Internet.password }
     organization
-    
+
     association :own_organization, factory: :organization
 
     trait :super_admin do
-      role { "super_admin" }    
+      role { 'super_admin' }
     end
 
     factory :super_admin, traits: [:super_admin]

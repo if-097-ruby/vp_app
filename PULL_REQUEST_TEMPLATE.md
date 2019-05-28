@@ -14,3 +14,4 @@ READY/IN DEVELOPMENT
 - [ ] PR doesn't have conflicts with main branch
 - [ ] I've checked new feature as logged in and logged out user if needed
 - [ ] "let!" is used in specs
+- [ ] code checked with Rubocop and offenses are fixed
