@@ -1,19 +1,20 @@
-.container-group-form
-  %h1 Device groups
-  %table.table
-    %thead
-      %tr
-        %th #
-        %th Name
-    %tbody
-      - @device_groups.each_with_index do |device_group, i|
+.col-xl-6.col-12
+  .box-content
+    %h4.box-title Device groups
+    / /.box-title
+    %table.table.table-striped.margin-bottom-10
+      %thead
         %tr
-          %th{:scope => "row"} #{i+1}
-          %td
+          %th{:style => "width:40%;"} Name
+          %th Options
+          %th Options
+      %tbody
+      - @device_groups.each do |device_group|
+        %tr
+          %td 
             = device_group.name
-          %td.edit-block
+          %td 
             = link_to "Edit", edit_account_device_group_path(device_group)
-          %td.delete-block
+          %td 
             = link_to "Delete", account_device_group_path(device_group), method: :delete, data: {confirm: "Are you sure?"}
-  .text-center
-    = link_to 'Create', new_account_device_group_path, class: "device-group-button-submit btn btn-success btn-lg" 
+  = link_to 'Create group', new_account_device_group_path, class: "btn btn-primary waves-effect waves-light" 
