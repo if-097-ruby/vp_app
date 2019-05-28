@@ -35,6 +35,25 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
     end
   end
 
+  describe 'GET #edit' do
+    let!(:user) { create(:user) }
+    let!(:organization) { create(:organization_with_device_group) }
+
+
+    context 'with signed in user' do
+      before(:each) do
+        sign_in user
+        user.own_organization = organization
+        get :edit, params: { id: user.own_organization.device_groups.first.id }
+      end
+
+      subject { response }
+
+      it { is_expected.to have_http_status(200) }
+      it { is_expected.to render_template('edit') }
+    end
+  end
+
   describe '#create' do
     context 'as an authenticated user' do
       before do
