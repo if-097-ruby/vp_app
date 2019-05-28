@@ -1,12 +1,14 @@
 .container-group-form
   %h1 Device groups
-  %table.table-container
-    %thead.border-table-header
+  %table.table
+    %thead
       %tr
+        %th #
         %th Name
     %tbody
-      - @device_groups.each do |device_group|
+      - @device_groups.each_with_index do |device_group, i|
         %tr
+          %th{:scope => "row"} #{i+1}
           %td
             = device_group.name
           %td.edit-block

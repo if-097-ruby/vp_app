@@ -8,27 +8,6 @@
   color: black;
 
   .device-group-button-submit {
-    margin-top: 50px;
-  }
-
-  .table-container {
-    width: 100%;
-
-    .border-table-header {
-      border-bottom: 4px solid blue;
-      margin-bottom: 10px;
-    }
-
-    .edit-block, .delete-block {
-      text-align: end;
-
-      a:hover {
-        text-decoration: underline !important;
-      }
-    }
-
-    .edit-block {
-      padding-left: 50px;
-    }
+    margin-top: 30px;
   }
 }

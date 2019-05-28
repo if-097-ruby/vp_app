@@ -14,7 +14,6 @@ RSpec.describe DeviceGroup, type: :model do
 
     describe 'association' do
       it { should belong_to :organization }
-      it { should have_many :devices }
     end
   end
 end
