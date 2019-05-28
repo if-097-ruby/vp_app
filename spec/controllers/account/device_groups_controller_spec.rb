@@ -39,7 +39,6 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
     let!(:user) { create(:user) }
     let!(:organization) { create(:organization_with_device_group) }
 
-
     context 'with signed in user' do
       before(:each) do
         sign_in user
@@ -94,6 +93,24 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
         @user.own_organization.device_groups.first.reload
         expect(@user.own_organization.device_groups.first.name).to eq 'Updated'
         expect(response).to redirect_to(account_device_groups_path)
+      end
+    end
+  end
+
+  describe '#delete' do
+    let!(:user) { create(:user) }
+    let!(:organization) { create(:organization_with_device_group) }
+
+    context 'with signed in user' do
+      before(:each) do
+        sign_in user
+        user.own_organization = organization
+      end
+
+      it 'create device_group' do
+        sign_in user
+        expect { delete :destroy, params: { id: user.own_organization.device_groups.first.id } }
+          .to change(user.own_organization.device_groups, :count).by(-1)
       end
     end
   end
