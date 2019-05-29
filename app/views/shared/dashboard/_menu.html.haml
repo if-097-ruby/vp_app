@@ -25,11 +25,11 @@
             = link_to account_profile_path do
               %i.menu-icon.ti-user
               %span Profile
-          %li
-            = link_to account_device_groups_path do
-              %i.menu-icon.ti-desktop
-              %span Device Groups
           - if current_user.role == 'admin'
+            %li
+              = link_to account_device_groups_path do
+                %i.menu-icon.ti-desktop
+                %span Device Groups
             %li
               = link_to account_users_path do
                 %i.menu-icon.ti-desktop

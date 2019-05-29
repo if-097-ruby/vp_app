@@ -1,7 +1,7 @@
 class Account::UsersController < ApplicationController
   layout 'dashboard'
-  before_filter :is_admin?
-  
+  before_action :is_admin?
+
   def index
     @users = collection
   end
@@ -51,7 +51,7 @@ class Account::UsersController < ApplicationController
   private
 
   def collection
-    User.all
+    User.all.where(organization_id: current_user.own_organization.id)
   end
 
   def resource
@@ -67,6 +67,5 @@ class Account::UsersController < ApplicationController
 
   def is_admin?
     redirect_to root_path unless current_user.role == 'admin'
-    end
   end
 end

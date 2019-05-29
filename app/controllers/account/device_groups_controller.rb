@@ -1,4 +1,6 @@
 class Account::DeviceGroupsController < Account::DashboardController
+  before_action :is_admin?
+  
   def index
     @device_groups = collection
   end
@@ -60,5 +62,11 @@ class Account::DeviceGroupsController < Account::DashboardController
 
   def resource
     parent.device_groups.find(params[:id])
+  end
+
+   private
+
+  def is_admin?
+    redirect_to root_path unless current_user.role == 'admin'
   end
 end
