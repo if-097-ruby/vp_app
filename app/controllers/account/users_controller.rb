@@ -1,6 +1,7 @@
 class Account::UsersController < ApplicationController
   layout 'dashboard'
-
+  before_filter :is_admin?
+  
   def index
     @users = collection
   end
@@ -60,5 +61,12 @@ class Account::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password,
                                  :password_confirmation, :role, :organization_id, :avatar)
+  end
+
+  private
+
+  def is_admin?
+    redirect_to root_path unless current_user.role == 'admin'
+    end
   end
 end
