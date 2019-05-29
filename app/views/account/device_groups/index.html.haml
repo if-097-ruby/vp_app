@@ -1,0 +1,20 @@
+.col-xl-6.col-12
+  .box-content
+    %h4.box-title Device groups
+    / /.box-title
+    %table.table.table-striped.margin-bottom-10
+      %thead
+        %tr
+          %th{:style => "width:40%;"} Name
+          %th Options
+          %th Options
+      %tbody
+      - @device_groups.each do |device_group|
+        %tr
+          %td 
+            = device_group.name
+          %td 
+            = link_to "Edit", edit_account_device_group_path(device_group)
+          %td 
+            = link_to "Delete", account_device_group_path(device_group), method: :delete, data: {confirm: "Are you sure?"}
+  = link_to 'Create group', new_account_device_group_path, class: "btn btn-primary waves-effect waves-light" 

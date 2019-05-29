@@ -10,6 +10,7 @@
   %body
     = render 'shared/dashboard/menu'
     = render 'shared/dashboard/header'
-    %main.container
-      = yield
+    #wrapper
+      .main-content
+        = yield
     = render 'shared/dashboard/footer'
