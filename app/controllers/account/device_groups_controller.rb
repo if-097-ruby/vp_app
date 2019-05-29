@@ -38,11 +38,10 @@ class Account::DeviceGroupsController < Account::DashboardController
 
     if @device_group.delete
       flash.now[:notice] = 'Group deleted!'
-      redirect_to account_device_groups_path
     else
       flash.now[:error] = 'Failed to delete this group!'
-      redirect_to account_device_groups_path
     end
+    redirect_to account_device_groups_path
   end
 
   private
