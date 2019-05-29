@@ -10,13 +10,18 @@ class Account::UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @user = User.new()
   end
 
   def create
     @user = User.new(user_params)
+    @user.role = 'member'
+    @user.password = 'password'
+    @user.password_confirmation = 'password'
+    @user.organization_id = current_user.own_organization.id
+    byebug
     if @user.save
-      redirect_to account_user_path(user: @user)
+      redirect_to account_users_path()
     else
       render :new
     end
