@@ -42,6 +42,11 @@ class Account::UsersController < ApplicationController
     redirect_to account_users_path
   end
 
+  def invite_user
+    User.invite!({ email: 'neswsss_user@exampssle.com', first_name: 'user', last_name: 'asss', role: 'member', organization_id: current_user.own_organization.id }, current_user)
+    redirect_to account_root_path
+  end
+
   private
 
   def collection
@@ -56,4 +61,6 @@ class Account::UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :password,
                                  :password_confirmation, :role, :organization_id, :avatar)
   end
+
+  
 end
