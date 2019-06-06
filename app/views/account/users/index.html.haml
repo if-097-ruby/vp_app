@@ -5,15 +5,17 @@
     %table.table.table-striped.margin-bottom-10
       %thead
         %tr
-          %th{:style => "width:40%;"} Name
+          %th{ style: "width:40%;" } Name
           %th E-mail
           %th Options
+          %th{ style: "text-align: center" } Status
       %tbody
       - @users.each do |user|
         %tr
           %td 
             - if user.role == 'admin'
-              #{user.first_name} (admin)
+              #{user.first_name} 
+              %strong (admin)
             - else
               = user.first_name
           %td 
@@ -21,5 +23,13 @@
           %td
             - if user.role == 'member' 
               = link_to "Delete", account_user_path(user), method: :delete, data: {confirm: "Are you sure?"}
+          %td{ style: "text-align: center" }
+            - if user.invitation_accepted?
+              %p
+                accepted &#10004;
+            - elsif user.role == 'admin'
+            - else
+              %p
+                waiting &#x2716;
   .container               
     = render 'account/users/form'
