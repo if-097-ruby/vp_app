@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   namespace :account do
     root to: 'dashboard#index'
-    get 'users/invite', to: 'users#invite_user'
     resources :users
     resource :profile, only: %i[show edit update]
     resources :device_groups, except: [:show]
