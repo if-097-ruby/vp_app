@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_permitted_parameters, only: :create
+  #before_action :configure_permitted_parameters, only: :create
   before_action :configure_account_update_params, only: :update
 
   # GET /resource/sign_up
@@ -31,11 +31,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/cancel
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name,
-                                                       :terms_of_service, own_organization_attributes: [:name]])
-    devise_parameter_sanitizer.permit(:accept_invitation)
-  end
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name,
+  #                                                      :terms_of_service, own_organization_attributes: [:name]])
+  #   devise_parameter_sanitizer.permit(:accept_invitation, keys: [:first_name, :last_name])
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params

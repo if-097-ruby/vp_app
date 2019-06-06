@@ -21,4 +21,5 @@
           %td
             - if user.role == 'member' 
               = link_to "Delete", account_user_path(user), method: :delete, data: {confirm: "Are you sure?"}
+  = render 'account/users/form'            
   = link_to 'Add new member', new_account_user_path, class: "btn btn-primary waves-effect waves-light" 

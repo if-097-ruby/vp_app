@@ -15,9 +15,15 @@ class Account::UsersController < ApplicationController
   end
 
   def create
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to account_user_path(user: @user)
+    else
+      render :new
+    end
      #User.invite!({ email: 'neswsss_user@exampssle.com', first_name: 'user', last_name: 'asss', role: 'member', organization_id: current_user.own_organization.id }, current_user)
-    User.invite!(@user, current_user)
-    redirect_to account_root_path
+    #User.invite!(@user, current_user)
+    #redirect_to account_root_path
   end
 
   def edit
