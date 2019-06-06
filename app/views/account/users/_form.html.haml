@@ -1,5 +1,5 @@
-.card-content
+#invitation-form.card-content
   .form-group
     = simple_form_for(User.new, url: user_invitation_path, html: {class: 'form-inline'}) do |f|
-      = f.input :email, placeholder: 'Email'     
+      = f.input :email, placeholder: 'Email', label: false  
       = f.button :submit, "Invite User", class: "btn btn-primary waves-effect waves-light"    

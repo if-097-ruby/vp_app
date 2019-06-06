@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about'
   get '/pricing', to: 'home#pricing'
 
-
   resources :contacts, only: %i[new create]
 
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' },

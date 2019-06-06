@@ -21,9 +21,6 @@ class Account::UsersController < ApplicationController
     else
       render :new
     end
-     #User.invite!({ email: 'neswsss_user@exampssle.com', first_name: 'user', last_name: 'asss', role: 'member', organization_id: current_user.own_organization.id }, current_user)
-    #User.invite!(@user, current_user)
-    #redirect_to account_root_path
   end
 
   def edit
@@ -46,11 +43,10 @@ class Account::UsersController < ApplicationController
     redirect_to account_users_path
   end
 
-
   private
 
   def collection
-    User.all.where(organization_id: current_user.own_organization.id)
+    User.all
   end
 
   def resource
@@ -65,5 +61,4 @@ class Account::UsersController < ApplicationController
   def is_admin?
     redirect_to root_path unless current_user.role == 'admin'
   end
-
 end
