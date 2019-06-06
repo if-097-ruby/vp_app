@@ -16,6 +16,7 @@
             - if user.role == 'admin'
               #{user.first_name} 
               %strong (admin)
+            - elsif user.invitation_accepted? == false
             - else
               = user.first_name
           %td 
@@ -31,5 +32,5 @@
             - else
               %p
                 waiting &#x2716;
-  .container               
+  #cont.container              
     = render 'account/users/form'
