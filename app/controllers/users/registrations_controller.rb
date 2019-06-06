@@ -34,6 +34,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name,
                                                        :terms_of_service, own_organization_attributes: [:name]])
+    devise_parameter_sanitizer.permit(:accept_invitation)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
