@@ -70,7 +70,7 @@ RSpec.describe Account::PresentationsController, type: :controller do
     end
 
     context 'with valid attributes' do
-      it 'should update the promo and redirect to the index' do
+      it 'should update the presentation' do
         process :update, method: :put, params: { id: @presentation.id, 
                 presentation: attributes_for(:presentation, name: 'Updated name') }
         @presentation.reload
