@@ -13,6 +13,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    if @user.own_organization.present?
+      @user.role = 'admin'
+      @user.save
+    end
   end
 
   # GET /resource/edit
