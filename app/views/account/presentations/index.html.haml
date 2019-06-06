@@ -1,0 +1,22 @@
+.col-xl-6.col-12
+  .box-content
+    %h4.box-title Presentations
+    %table.table.table-striped
+      %thead
+        %tr
+          %th{:style => "width:40%;"} Name
+          %th Download Link
+          %th Options
+          %th Options
+      %tbody
+        - @presentations.each do |presentation|
+          %tr
+            %td
+              = presentation.name
+            %td
+              = link_to "Download", presentation.attachment_url
+            %td 
+              = link_to "Edit", edit_account_presentation_path(presentation)
+            %td 
+              = link_to "Delete", account_presentation_path(presentation), method: :delete, data: {confirm: "Are you sure?"}
+  = link_to 'Add Presentation', new_account_presentation_path, class: "btn btn-primary waves-effect waves-light"
