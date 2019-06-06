@@ -2,7 +2,7 @@ class Account::PresentationsController < ApplicationController
   layout 'dashboard'
 
   def index
-    @presentations = Presentation.all
+    @presentations = collection
   end
 
   def new
@@ -35,19 +35,23 @@ class Account::PresentationsController < ApplicationController
   end
 
   def destroy
-    @presentation = Presentation.find(params[:id])
+    @presentation = resource
     @presentation.destroy
     redirect_to account_presentations_path, notice: 'Successfully deleted.'
   end
 
   private
+  
+  def collection
+    Presentation.all
+  end
 
   def presentation_params
     params.require(:presentation).permit(:name, :attachment)
   end
 
   def resource
-    Presentation.find(params[:id])
+    collection.find(params[:id])
   end
   
 end
