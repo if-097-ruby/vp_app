@@ -15,6 +15,7 @@ class Account::PresentationsController < ApplicationController
       flash.now[:notice] = 'Successfully uploaded.'
       redirect_to account_presentations_path
     else
+      flash[:error] = 'Failed to upload a presentation!'
       render 'new'
     end
   end
