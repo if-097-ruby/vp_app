@@ -57,6 +57,7 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
+  gem 'email_spec'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
