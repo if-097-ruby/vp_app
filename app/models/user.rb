@@ -26,6 +26,8 @@ class User < ApplicationRecord
   def send_signup_emails
     SignupMailer.welcome_email(self).deliver_now
     super_admin = User.find_by(role: 'super_admin')
-    SignupMailer.new_organization_created_email(self, super_admin).deliver_now if super_admin.present?
+    if super_admin.present? && self.own_organization.present?
+      SignupMailer.new_organization_created_email(self, super_admin).deliver_now
+    end
   end
 end
