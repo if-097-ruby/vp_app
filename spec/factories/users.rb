@@ -18,6 +18,5 @@ FactoryBot.define do
 
     factory :super_admin, traits: [:super_admin]
     factory :admin, traits: [:admin]
-
   end
 end

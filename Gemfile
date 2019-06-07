@@ -51,13 +51,13 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'chromedriver-helper'
+  gem 'email_spec'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.8'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
-  gem 'email_spec'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

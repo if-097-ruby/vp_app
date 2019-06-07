@@ -1,6 +1,6 @@
 require 'simplecov'
-require "email_spec"
-require "email_spec/rspec"
+require 'email_spec'
+require 'email_spec/rspec'
 SimpleCov.start
 
 RSpec.configure do |config|
