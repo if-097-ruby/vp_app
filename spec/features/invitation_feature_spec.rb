@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Invitations', type: :feature do
   describe 'invitations'  do
     let(:user) { create(:admin) }
+    let(:member) { create(:user) }
 
     context('inviting new members') do
       before :each do
@@ -67,7 +68,9 @@ RSpec.feature 'Invitations', type: :feature do
 
         click_button 'Continue'
 
+        sign_out member
         sign_in user
+
         visit account_users_path
         expect(page).to have_content('accepted')
       end

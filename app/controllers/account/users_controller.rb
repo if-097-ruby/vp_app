@@ -1,6 +1,6 @@
 class Account::UsersController < ApplicationController
   layout 'dashboard'
-  before_action :is_admin?
+  before_action :require_admin
 
   def index
     @users = collection
@@ -58,7 +58,4 @@ class Account::UsersController < ApplicationController
                                  :password_confirmation, :role, :organization_id, :avatar)
   end
 
-  def is_admin?
-    redirect_to root_path unless current_user.role == 'admin'
-  end
 end

@@ -1,5 +1,4 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_permitted_parameters, only: :create
   before_action :configure_account_update_params, only: :update
 
   # GET /resource/sign_up
@@ -13,11 +12,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    if @user.own_organization.present?
-      @user.role = 'admin'
-      @user.save
-      @user.own_organization.users.push(@user)
-    end
   end
 
   # GET /resource/edit

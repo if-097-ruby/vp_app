@@ -13,8 +13,8 @@
       - @users.each do |user|
         %tr
           %td 
-            - if user.role == 'admin'
-              #{user.first_name} 
+            - if user.admin?
+              #{user.full_name} 
               %strong (admin)
             - elsif user.invitation_accepted? == false
             - else
@@ -22,15 +22,10 @@
           %td 
             = user.email
           %td
-            - if user.role == 'member' 
+            - if user.member? 
               = link_to "Delete", account_user_path(user), method: :delete, data: {confirm: "Are you sure?"}
           %td{ style: "text-align: center" }
-            - if user.invitation_accepted?
-              %p
-                accepted &#10004;
-            - elsif user.role == 'admin'
-            - else
-              %p
-                waiting &#x2716;
+            %p
+              = user.status
   #cont.container              
     = render 'account/users/form'

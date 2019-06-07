@@ -15,10 +15,18 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true, length: { in: 2..50 }
   validates :terms_of_service, acceptance: true, on: :create
 
-  after_create :send_signup_emails
+  after_create :send_signup_emails, :set_admin_role
 
   def full_name
     [first_name, last_name].reject(&:blank?).join(' ')
+  end
+
+  def status
+    if self.invitation_accepted?
+      return "accepted"
+    else
+      'waiting'
+    end
   end
 
   private
@@ -28,6 +36,14 @@ class User < ApplicationRecord
     super_admin = User.find_by(role: 'super_admin')
     if super_admin.present? && own_organization.present?
       SignupMailer.new_organization_created_email(self, super_admin).deliver_now
+    end
+  end
+
+  def set_admin_role
+    if self.own_organization.present?
+      self.role = 'admin'
+      self.save
+      self.own_organization.users.push(self)
     end
   end
 end

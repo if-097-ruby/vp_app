@@ -6,4 +6,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:invite, keys: %i[email organization_id])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :terms_of_service, own_organization_attributes: [:name]])
   end
+
+  private
+
+  def require_admin
+    redirect_to root_path unless current_user.role == 'admin'
+  end
 end
