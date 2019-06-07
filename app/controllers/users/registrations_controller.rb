@@ -16,6 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @user.own_organization.present?
       @user.role = 'admin'
       @user.save
+      @user.own_organization.users.push(@user)
     end
   end
 
