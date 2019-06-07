@@ -1,4 +1,5 @@
 class Account::PresentationsController < ApplicationController
+  before_action :authenticate_user!
   layout 'dashboard'
 
   def index
@@ -10,7 +11,7 @@ class Account::PresentationsController < ApplicationController
   end
 
   def create
-    @presentation = Presentation.new(presentation_params)
+    @presentation = current_user.presentations.build(presentation_params)
     if @presentation.save
       flash.now[:notice] = 'Successfully uploaded.'
       redirect_to account_presentations_path
@@ -44,7 +45,7 @@ class Account::PresentationsController < ApplicationController
   private
   
   def collection
-    Presentation.all
+    current_user.presentations
   end
 
   def presentation_params

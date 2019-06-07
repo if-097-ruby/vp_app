@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     root to: 'dashboard#index'
     resources :users
     resource  :profile, only: %i[show edit update]
-    resources :device_groups, :presentations, except: [:show]
+    resources :device_groups, except: [:show]
+    resources :presentations, expect: [:show]
   end
 end
