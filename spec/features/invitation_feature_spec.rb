@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'spec_helper'
 
 RSpec.feature 'Invitations', type: :feature do
   describe 'invitations'  do

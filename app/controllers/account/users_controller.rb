@@ -46,7 +46,7 @@ class Account::UsersController < ApplicationController
   private
 
   def collection
-    current_user.own_organization.users
+    current_user.organization.users
   end
 
   def resource
