@@ -8,10 +8,16 @@ FactoryBot.define do
 
     association :own_organization, factory: :organization
 
+    trait :admin do
+      role { 'admin' }
+    end
+
     trait :super_admin do
       role { 'super_admin' }
     end
 
     factory :super_admin, traits: [:super_admin]
+    factory :admin, traits: [:admin]
+
   end
 end
