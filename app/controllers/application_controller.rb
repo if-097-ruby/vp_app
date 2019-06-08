@@ -10,6 +10,9 @@ class ApplicationController < ActionController::Base
   private
 
   def require_admin
-    redirect_to root_path unless current_user.role == 'admin'
+    unless current_user.admin?
+    redirect_to root_path 
+    flash.now[:error] = 'Sorry, you have to be admin to continue..'
+    end
   end
 end

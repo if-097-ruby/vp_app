@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
   def status
     if self.invitation_accepted?
-      return "accepted"
+      'accepted'
     else
       'waiting'
     end
@@ -40,10 +40,8 @@ class User < ApplicationRecord
   end
 
   def set_admin_role
-    if self.own_organization.present?
-      self.role = 'admin'
-      self.save
-      self.own_organization.users.push(self)
-    end
+   return if own_organization.blank?
+   update_attribute :role, 'admin'
+   self.own_organization.users.push(self)
   end
 end
