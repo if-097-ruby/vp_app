@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :contacts, only: %i[new create]
 
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' },
-                     controllers: { registrations: 'users/registrations', invitations: 'users/invitations' }
+                     controllers: { registrations: 'users/registrations' }
 
   namespace :account do
     root to: 'dashboard#index'
