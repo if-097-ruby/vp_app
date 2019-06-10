@@ -7,6 +7,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
+gem 'devise_invitable', '~> 2.0.0'
 gem 'gravatar_image_tag'
 gem 'haml-rails', '1.0.0'
 gem 'jbuilder', '~> 2.5'
@@ -50,6 +51,7 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'chromedriver-helper'
+  gem 'email_spec'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.8'
   gem 'selenium-webdriver'

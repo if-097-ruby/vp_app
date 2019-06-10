@@ -1,5 +1,6 @@
 class Account::UsersController < ApplicationController
   layout 'dashboard'
+  before_action :require_admin
 
   def index
     @users = collection
@@ -45,7 +46,7 @@ class Account::UsersController < ApplicationController
   private
 
   def collection
-    User.all
+    current_user.organization.users
   end
 
   def resource
@@ -56,4 +57,5 @@ class Account::UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :password,
                                  :password_confirmation, :role, :organization_id, :avatar)
   end
+
 end
