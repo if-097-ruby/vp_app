@@ -11,7 +11,7 @@ class Account::PresentationsController < ApplicationController
   end
 
   def create
-    @presentation = current_user.presentations.build(presentation_params)
+    @presentation = collection.build(presentation_params)
     if @presentation.save
       flash.now[:notice] = 'Successfully uploaded.'
       redirect_to account_presentations_path
