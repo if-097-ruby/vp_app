@@ -4,7 +4,7 @@ class Account::DevicesController < Account::DashboardController
   end
 
   def new
-    @device = parent.devices.build
+    @devices = parent.devices.build
   end
 
   def create
