@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Device, type: :model do
   context 'validations tests' do
-    let!(:device_group) { create(:device_group) }
 
     describe '#name' do
       it { should validate_presence_of(:name) }

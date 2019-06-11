@@ -4,7 +4,7 @@ class Account::DevicesController < Account::DashboardController
   end
 
   def new
-    parent.devices.build
+    @device = parent.devices.build
   end
 
   def create
@@ -59,6 +59,6 @@ class Account::DevicesController < Account::DashboardController
   end
 
   def resource
-    parent.devices.find(params[:id])
+    collection.find(params[:id])
   end
 end

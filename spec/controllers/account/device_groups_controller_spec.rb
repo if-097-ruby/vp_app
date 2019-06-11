@@ -36,8 +36,8 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
   end
 
   describe 'GET #edit' do
-    let!(:user) { create(:user, own_organization: organization) }
-    let!(:organization) { create(:organization_with_device_group) }
+    let!(:user) { create(:admin, own_organization: organization) }
+    let!(:organization) { create(:organization, :has_one_device_group) }
 
     context 'with signed in user' do
       before(:each) do
@@ -78,8 +78,8 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
   end
 
   describe '#update' do
-    let!(:user) { create(:user, own_organization: organization) }
-    let!(:organization) { create(:organization_with_device_group) }
+    let!(:user) { create(:admin, own_organization: organization) }
+    let!(:organization) { create(:organization, :has_one_device_group ) }
 
     context 'as an authenticated user' do
       it 'update device_group' do
@@ -95,8 +95,8 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
   end
 
   describe '#delete' do
-    let!(:user) { create(:user, own_organization: organization) }
-    let!(:organization) { create(:organization_with_device_group) }
+    let!(:user) { create(:admin, own_organization: organization) }
+    let!(:organization) { create(:organization, :has_one_device_group ) }
 
     context 'with signed in user' do
       before(:each) do
