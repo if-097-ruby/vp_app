@@ -7,5 +7,11 @@ FactoryBot.define do
         create(:device_group, organization: organization)
       end
     end
+
+    factory :organization_with_device do
+      after(:create) do |organization|
+        create(:device, organization: organization)
+      end
+    end    
   end
 end
