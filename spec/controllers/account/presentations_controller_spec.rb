@@ -47,13 +47,13 @@ RSpec.describe Account::PresentationsController, type: :controller do
       it 'create presentation' do
         expect {
           post :create, params: { presentation: attributes_for(:presentation).merge(
-               attachment: Rack::Test::UploadedFile.new(Rails.root.join("spec/fixtures/myfiles/makoginm-cv.doc"))) }
+          attachment: Rack::Test::UploadedFile.new(Rails.root.join("spec/fixtures/myfiles/makoginm-cv.doc"))) }
         }.to change(user.presentations, :count).by(1)
       end
 
       it 'it should redirect after save' do
         post :create, params: { presentation: attributes_for(:presentation).merge(
-             attachment: Rack::Test::UploadedFile.new(Rails.root.join("spec/fixtures/myfiles/makoginm-cv.doc"))) }
+        attachment: Rack::Test::UploadedFile.new(Rails.root.join("spec/fixtures/myfiles/makoginm-cv.doc"))) }
         expect(response).to redirect_to(account_presentations_path)
       end
     end
