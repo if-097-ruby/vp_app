@@ -6,3 +6,9 @@
 .invalid-feedback {
   color: red;
 }
+
+#invitation-form {
+  .form-group input {
+    margin-left: 10px;
+  }
+}

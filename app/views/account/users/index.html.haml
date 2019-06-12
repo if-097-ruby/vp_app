@@ -1,2 +1,28 @@
-%p Editting user
-%p Index user
+.col-xl-6.col-12
+  .box-content
+    %h4.box-title Users
+    / /.box-title
+    %table.table.table-striped.margin-bottom-10
+      %thead
+        %tr
+          %th{ style: "width:40%;" } Name
+          %th E-mail
+          %th Options
+          %th{ style: "text-align: center" } Status
+      %tbody
+      - @users.each do |user|
+        %tr
+          %td 
+            #{user.full_name} 
+            - if user.admin?
+              %strong (admin)
+          %td 
+            = user.email
+          %td
+            - if user.member? 
+              = link_to "Delete", account_user_path(user), method: :delete, data: {confirm: "Are you sure?"}
+          %td{ style: "text-align: center" }
+            %p
+              = user.status
+  #cont.container              
+    = render 'account/users/form'

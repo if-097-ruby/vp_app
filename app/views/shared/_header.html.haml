@@ -13,6 +13,9 @@
         = link_to "Contact Us", new_contact_path, class: "nav-link"
   .header-join
     - if user_signed_in?
+      = link_to "Account", account_root_path, class: "header-join-account"
+      .text-white
+        or
       = link_to "Log Out", destroy_user_session_path, method: :delete, class: "header-join-log-out"
     - else
       = link_to "Join", new_user_registration_path, class: "header-join-sign-up"
