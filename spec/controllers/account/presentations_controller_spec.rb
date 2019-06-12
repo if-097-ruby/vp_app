@@ -46,14 +46,14 @@ RSpec.describe Account::PresentationsController, type: :controller do
 
       it 'create presentation' do
         expect {
-          post :create, params: { presentation: presentation.attributes.except(:id).merge(
-          attachment: Rack::Test::UploadedFile.new(Rails.root.join("spec/fixtures/myfiles/makoginm-cv.doc"))) } 
+          post :create, params: { presentation: attributes_for(:presentation).merge(
+               attachment: Rack::Test::UploadedFile.new(Rails.root.join("spec/fixtures/myfiles/makoginm-cv.doc"))) }
         }.to change(user.presentations, :count).by(1)
       end
 
       it 'it should redirect after save' do
-        post :create, params: { presentation: presentation.attributes.except(:id).merge(
-        attachment: Rack::Test::UploadedFile.new(Rails.root.join("spec/fixtures/myfiles/makoginm-cv.doc"))) }
+        post :create, params: { presentation: attributes_for(:presentation).merge(
+             attachment: Rack::Test::UploadedFile.new(Rails.root.join("spec/fixtures/myfiles/makoginm-cv.doc"))) }
         expect(response).to redirect_to(account_presentations_path)
       end
     end
@@ -61,12 +61,12 @@ RSpec.describe Account::PresentationsController, type: :controller do
 
   describe 'GET #edit' do
     let!(:user) { create(:user) }
-    let!(:presentation) { create(:presentation, user_id: user.id) }
+    let!(:presentation) { create(:presentation, user: user) }
 
     context 'with signed in user' do
       before(:each) do
         sign_in user
-        get :edit, params: { id: user.presentations.first.id }
+        get :edit, params: { id: presentation.id }
       end
 
       subject { response }
@@ -78,15 +78,15 @@ RSpec.describe Account::PresentationsController, type: :controller do
 
   describe 'PUT #update' do
     let!(:user) { create(:user)}
-    let!(:presentation) { create(:presentation, user_id: user.id) }
+    let!(:presentation) { create(:presentation, user: user) }
 
     context 'as an authenticated user' do
       it 'update presentation' do
         new_presentation_params = FactoryBot.attributes_for(:presentation, name: 'Updated name')
         sign_in user
-        put :update, params: { id: user.presentations.first.id, presentation: new_presentation_params }
-        user.presentations.first.reload
-        expect(user.presentations.first.name).to eq 'Updated name'
+        put :update, params: { id: presentation.id, presentation: new_presentation_params }
+        presentation.reload
+        expect(presentation.name).to eq 'Updated name'
         expect(response).to redirect_to(account_presentations_path)
       end
     end
@@ -94,7 +94,7 @@ RSpec.describe Account::PresentationsController, type: :controller do
 
   describe '#delete' do
     let!(:user) { create(:user)}
-    let!(:presentation) { create(:presentation, user_id: user.id) }
+    let!(:presentation) { create(:presentation, user: user) }
 
     context 'with signed in user' do
       before(:each) do
@@ -102,13 +102,12 @@ RSpec.describe Account::PresentationsController, type: :controller do
       end
 
       it 'delete presentation' do
-        sign_in user
-        expect { delete :destroy, params: { id: user.presentations.first.id } }
+        expect { delete :destroy, params: { id: presentation.id } }
           .to change(user.presentations, :count).by(-1)
       end
 
     it 'it should redirect after delete' do
-        delete :destroy, params: { id: user.presentations.first.id }
+        delete :destroy, params: { id: presentation.id }
         expect(response).to redirect_to(account_presentations_path)
       end
     end
