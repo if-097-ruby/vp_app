@@ -54,10 +54,11 @@ ActiveRecord::Schema.define(version: 2019_06_06_115037) do
   create_table "devices", force: :cascade do |t|
     t.string "name"
     t.string "device_type"
-    t.bigint "organization_id"
+    t.string "deviceable_type"
+    t.bigint "deviceable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["organization_id"], name: "index_devices_on_organization_id"
+    t.index ["deviceable_type", "deviceable_id"], name: "index_devices_on_deviceable_type_and_deviceable_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -99,5 +100,4 @@ ActiveRecord::Schema.define(version: 2019_06_06_115037) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "devices", "organizations"
 end
