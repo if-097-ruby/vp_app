@@ -37,12 +37,13 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
 
   describe 'GET #edit' do
     let!(:user) { create(:admin, own_organization: organization) }
-    let!(:organization) { create(:organization, :has_one_device_group) }
+    let!(:organization) { create(:organization_with_device_groups, groups_count: 1) }
 
     context 'with signed in user' do
       before(:each) do
         sign_in user
-        get :edit, params: { id: user.own_organization.device_groups.first.id }
+        device_group = user.own_organization.device_groups.first
+        get :edit, params: { id: device_group.id }
       end
 
       subject { response }
@@ -53,24 +54,23 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
   end
 
   describe '#create' do
-    let!(:user) { create(:user) }
-    let!(:device_group) { create(:device_group) }
+    let!(:user) { create(:admin, own_organization: organization) }
+    let!(:organization) { create(:organization) }
+    let!(:valid_params) { attributes_for(:device_group) }
 
     context 'as an authenticated user' do
       before do
-        @device_group_params = FactoryBot.attributes_for(:device_group)
+        sign_in user
       end
 
       it 'create device_group' do
-        sign_in user
         expect do
-          post :create, params: { device_group: @device_group_params }
+          post :create, params: { device_group: valid_params }
         end.to change(user.own_organization.device_groups, :count).by(1)
       end
 
       it 'it should redirect after save' do
-        sign_in user
-        post :create, params: { device_group: @device_group_params }
+        post :create, params: { device_group: valid_params }
         expect(flash[:notice]).to eq 'Group saved!'
         expect(response).to redirect_to(account_device_groups_path)
       end
@@ -79,24 +79,28 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
 
   describe '#update' do
     let!(:user) { create(:admin, own_organization: organization) }
-    let!(:organization) { create(:organization, :has_one_device_group ) }
+    let!(:organization) { create(:organization_with_device_groups, groups_count: 1) }
+    let!(:params) { attributes_for(:device_group) }
 
     context 'as an authenticated user' do
-      it 'update device_group' do
-        new_device_group_params = FactoryBot.attributes_for(:device_group)
-        new_device_group_params[:name] = 'Updated'
+      before do
         sign_in user
-        put :update, params: { id: user.own_organization.device_groups.first.id, device_group: new_device_group_params }
-        user.own_organization.device_groups.first.reload
-        expect(user.own_organization.device_groups.first.name).to eq 'Updated'
+      end
+
+      it 'update device_group' do
+        device_group = user.own_organization.device_groups.first
+        params[:name] = 'Updated'
+        put :update, params: { id: device_group.id, device_group: params }
+        device_group.reload
+        expect(device_group.name).to eq 'Updated'
         expect(response).to redirect_to(account_device_groups_path)
       end
     end
   end
 
   describe '#delete' do
-    let!(:user) { create(:admin, own_organization: organization) }
-    let!(:organization) { create(:organization, :has_one_device_group ) }
+     let!(:user) { create(:admin, own_organization: organization) }
+    let!(:organization) { create(:organization_with_device_groups, groups_count: 1) }
 
     context 'with signed in user' do
       before(:each) do
@@ -104,9 +108,9 @@ RSpec.describe Account::DeviceGroupsController, type: :controller do
       end
 
       it 'create device_group' do
-        sign_in user
-        expect { delete :destroy, params: { id: user.own_organization.device_groups.first.id } }
-          .to change(user.own_organization.device_groups, :count).by(-1)
+        device_group = user.own_organization.device_groups.first
+        expect { delete :destroy, params: { id: device_group.id } }
+        .to change(user.own_organization.device_groups, :count).by(-1)
       end
     end
   end

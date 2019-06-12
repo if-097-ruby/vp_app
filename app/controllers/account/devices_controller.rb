@@ -1,10 +1,10 @@
 class Account::DevicesController < Account::DashboardController
   def index
-    @devices = collection    
+    @device = collection    
   end
 
   def new
-    @devices = parent.devices.build
+    @device = parent.devices.build
   end
 
   def create

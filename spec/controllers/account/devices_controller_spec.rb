@@ -38,12 +38,12 @@ RSpec.describe Account::DevicesController, type: :controller do
 
   describe 'GET #edit' do
     let!(:user) { create(:admin, own_organization: organization) }
-    let!(:organization) { create(:organization, :has_one_device) }
-    let!(:device) { create(:device, organization: organization)}
+    let!(:organization) { create(:organization_with_devices, devices_count: 1) }
 
     context 'with signed in user' do
       before(:each) do
         sign_in user
+        device = user.organization.devices.first
         get :edit, params: { id: device.id }
       end
 
@@ -67,7 +67,7 @@ RSpec.describe Account::DevicesController, type: :controller do
       it 'create device' do
         expect do
           post :create, params: { device: valid_params }
-        end.to change(user.own_organization.devices, :count).by(1)
+        end.to change(user.organization.devices, :count).by(1)
       end
 
       it 'it should redirect after save' do
@@ -80,17 +80,16 @@ RSpec.describe Account::DevicesController, type: :controller do
 
   describe '#update' do
     let!(:user) { create(:admin, own_organization: organization) }
-    let!(:organization) { create(:organization, :has_one_device) }
-    let!(:device) { create(:device, organization: organization)}
+    let!(:organization) { create(:organization_with_devices, devices_count: 1) }
     let!(:params) { attributes_for(:device) }
 
     context 'with signed in user' do
       before(:each) do
         sign_in user
       end
-
-    context 'as an authenticated user' do
+    
       it 'update device' do
+        device = user.organization.devices.first
         params[:name] = 'Updated'
         put :update, params: { id: device.id, device: params }
         device.reload
@@ -98,12 +97,11 @@ RSpec.describe Account::DevicesController, type: :controller do
         expect(response).to redirect_to(account_devices_path)
       end
     end
-  end
+  end 
 
   describe '#delete' do
     let!(:user) { create(:admin, own_organization: organization) }
-    let!(:organization) { create(:organization, :has_one_device) }
-    let!(:device) { create(:device, organization: organization)}
+    let!(:organization) { create(:organization_with_devices, devices_count: 1) }
 
     context 'with signed in user' do
       before(:each) do
@@ -111,9 +109,9 @@ RSpec.describe Account::DevicesController, type: :controller do
       end
 
       it 'create device' do
+        device = user.organization.devices.first
         expect { delete :destroy, params: { id: device.id } }
-          .to change(user.own_organization.devices, :count).by(-1)
-      end
+        .to change(user.organization.devices, :count).by(-1)
       end
     end
   end
