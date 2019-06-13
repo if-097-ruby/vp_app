@@ -75,6 +75,15 @@ ActiveRecord::Schema.define(version: 2019_06_06_115037) do
     t.index ["owner_id"], name: "index_organizations_on_owner_id"
   end
 
+  create_table "presentations", force: :cascade do |t|
+    t.string "name"
+    t.string "attachment"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_presentations_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
