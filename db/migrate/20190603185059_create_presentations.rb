@@ -3,7 +3,7 @@ class CreatePresentations < ActiveRecord::Migration[5.2]
     create_table :presentations do |t|
       t.string      :name
       t.string      :attachment
-      t.references (:user)
+      t.references  :user
 
       t.timestamps
     end
