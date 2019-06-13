@@ -1,0 +1,5 @@
+.card-content
+  = simple_form_for [:account, @device] do |f|
+    = f.input :name, input_html: { maxlength: 50 }  
+    = f.input :device_type, input_html: { maxlength: 50 }      
+    = f.button :submit, "Submit", class: "btn btn-primary waves-effect waves-light"

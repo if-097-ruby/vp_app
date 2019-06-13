@@ -33,6 +33,10 @@
             = link_to account_presentations_path do
               %i.menu-icon.ti-layers-alt
               %span Presentations
+          %li      
+            = link_to account_devices_path do
+              %i.menu-icon.ti-mobile
+              %span Devices 
           - if current_user.admin?
             %li
               = link_to account_users_path do
