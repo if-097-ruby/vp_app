@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_194808) do
+ActiveRecord::Schema.define(version: 2019_06_06_115037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,22 @@ ActiveRecord::Schema.define(version: 2019_06_06_194808) do
     t.integer "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "device_groups_devices", id: false, force: :cascade do |t|
+    t.bigint "device_group_id"
+    t.bigint "device_id"
+    t.index ["device_group_id"], name: "index_device_groups_devices_on_device_group_id"
+    t.index ["device_id"], name: "index_device_groups_devices_on_device_id"
+  end
+
+  create_table "devices", force: :cascade do |t|
+    t.string "name"
+    t.string "device_type"
+    t.bigint "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_devices_on_organization_id"
   end
 
   create_table "organizations", force: :cascade do |t|
