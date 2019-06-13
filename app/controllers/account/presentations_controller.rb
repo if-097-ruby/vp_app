@@ -43,7 +43,7 @@ class Account::PresentationsController < ApplicationController
   end
 
   private
-  
+
   def collection
     current_user.presentations
   end
@@ -55,5 +55,5 @@ class Account::PresentationsController < ApplicationController
   def resource
     collection.find(params[:id])
   end
-  
+
 end

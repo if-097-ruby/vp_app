@@ -8,6 +8,6 @@ class AttachmentUploader < CarrierWave::Uploader::Base
 
   def extension_whitelist
     %w(doc pdf)
-end
+  end
 
 end
