@@ -10,6 +10,8 @@ require 'rspec/rails'
 require 'support/factory_bot'
 require 'shoulda/matchers'
 require 'capybara/rails'
+require 'support/config/carrier_wave'
+
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
