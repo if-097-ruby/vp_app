@@ -5,9 +5,9 @@
     %table.table.table-striped.margin-bottom-10
       %thead
         %tr
-          %th{:style => "width:40%;"} Name
+          %th{ style: "width:40%;" } Name
           %th Type
-          %th{:style => "width:20%;"} Options          
+          %th{ colspan: 2, style: "width:20%;" } Options         
       %tbody
       - @device.each do |device|
         %tr
@@ -17,6 +17,6 @@
             = device.device_type           
           %td
             = link_to "Edit", edit_account_device_path(device)
-            &nbsp;&nbsp;
+          %td
             = link_to "Delete", account_device_path(device), method: :delete, data: {confirm: "Are you sure?"}
   = link_to 'Create device', new_account_device_path, class: "btn btn-primary waves-effect waves-light" 
