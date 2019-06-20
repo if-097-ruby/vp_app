@@ -10,6 +10,10 @@ class Account::PresentationsController < ApplicationController
     @presentation = Presentation.new
   end
 
+  def show
+    @presentation = Presentation.find(params[:id])
+  end
+
   def create
     @presentation = collection.build(presentation_params)
     if @presentation.save

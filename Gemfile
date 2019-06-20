@@ -27,6 +27,7 @@ gem 'rails-assets-nprogress', source: 'https://rails-assets.org'
 gem 'rails-assets-themify-icons', source: 'https://rails-assets.org'
 gem 'rails-assets-waves', '0.7.5', source: 'https://rails-assets.org'
 gem 'react_on_rails', '11.1.4'
+gem 'rmagick'
 gem 'rubocop', '~> 0.70.0', require: false
 gem 'sass-rails', ' ~> 5.0'
 gem 'sassc-rails', '>=2.1.0'

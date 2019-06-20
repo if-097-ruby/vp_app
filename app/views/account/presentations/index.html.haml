@@ -11,7 +11,7 @@
         - @presentations.each do |presentation|
           %tr
             %td
-              = presentation.name
+              = link_to presentation.name, account_presentation_path(presentation), method: :get
             %td
               = link_to "Download", presentation.attachment_url
             %td 
