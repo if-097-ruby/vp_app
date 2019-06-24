@@ -35,6 +35,9 @@ gem 'sprockets-rails', '2.3.3'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker', '4.0.2'
+gem 'mini_magick'
+gem 'shrine'
+gem 'rmagick'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
