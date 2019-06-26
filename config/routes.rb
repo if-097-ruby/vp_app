@@ -14,6 +14,6 @@ Rails.application.routes.draw do
     resource  :profile, only: %i[show edit update]
     resources :device_groups, except: [:show]
     resources :devices, except:       [:show]
-    resources :presentations, except: [:show]
+    resources :presentations
   end
 end

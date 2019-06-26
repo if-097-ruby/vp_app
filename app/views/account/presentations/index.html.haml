@@ -4,9 +4,9 @@
     %table.table.table-striped
       %thead
         %tr
-          %th{ style: 'width:40%;' } Name
+          %th{ style: 'width:40%;' }
           %th Download Link
-          %th{ :colspan => '2', style: 'width:20%;' } Options
+          %th{ colspan: 3, style: 'width:20%;' } Options
       %tbody
         - @presentations.each do |presentation|
           %tr
@@ -16,6 +16,8 @@
               = link_to "Download", presentation.attachment_url
             %td 
               = link_to "Edit", edit_account_presentation_path(presentation)
+            %td
+              = link_to "Open", account_presentation_path(presentation)
             %td
               = link_to "Delete", account_presentation_path(presentation), method: :delete, data: {confirm: "Are you sure?"}
   = link_to 'Add Presentation', new_account_presentation_path, class: "btn btn-primary waves-effect waves-light"
