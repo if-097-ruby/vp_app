@@ -1,7 +1,6 @@
 class AttachmentUploader < CarrierWave::Uploader::Base
 
   after :store, :convert_to_images
-  #after :store, :set_content_type_png
   
   storage :file
 
@@ -10,7 +9,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   end 
 
   def extension_whitelist
-    %w(doc pdf)
+    %w(pdf png)
   end
 
   include CarrierWave::MiniMagick
@@ -26,12 +25,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
         convert << page.path
         convert << "#{CarrierWave.root}/#{store_dir}/image-#{index}.png"
       end
-    Slide.create(image: image, presentation_id: model.id)        
+    Slide.create(image: File.open("#{CarrierWave.root}/#{store_dir}/image-#{index}.png"), presentation_id: model.id)
     end
-  end     
-
-  # def set_content_type_png(*args)
-  #   self.file.instance_variable_set(:@content_type, "image/png")
-  # end
-
+  end   
 end

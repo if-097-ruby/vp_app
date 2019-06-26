@@ -1,3 +1,16 @@
-- @presentation.slides.each do |slide|
-  - if slide.image
-    = image_tag slide.image_url
+#myCarousel.carousel.slide{"data-ride" => "carousel"}
+  / Indicators
+  %ol.carousel-indicators
+    %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+  / Wrapper for slides
+  .carousel-inner
+    - @presentation.slides.each do |slide|
+      .item.active
+        %img{:alt => "Los Angeles", :src => "#{slide.image.url}"}
+  / Left and right controls
+  %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"}
+    %span.glyphicon.glyphicon-chevron-left
+    %span.sr-only Previous
+  %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"}
+    %span.glyphicon.glyphicon-chevron-right
+    %span.sr-only Next
