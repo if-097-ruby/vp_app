@@ -2003,6 +2003,7 @@ h4 strong {
 /*---------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------
 16. Data Tables
+
 */
 .dataTables_wrapper .dataTables_paginate .pagination {
 	margin: 0;
@@ -4812,3 +4813,8 @@ textarea.form-control {
 	background: #f60e0e;
 }
 /*---------------------------------------------------------------------*/
+.carousel-inner .item {
+	position: absolute;
+	margin-left: 25%;
+	width: 50%;
+}

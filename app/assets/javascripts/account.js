@@ -24,3 +24,5 @@
 //= require spacex/jquery.sparkline.min.js
 //= require spacex/percircle.js
 //= require spacex/main.js
+//= require spacex/jquery.min.js
+//= require spacex/bootstrap.min.js
